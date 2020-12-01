@@ -1,0 +1,24 @@
+
+.nav-bar {
+  background-color: #bbbfca;
+  height: 10vh;
+}
+
+.home-btn {
+  margin: 2%;
+  height: 46px;
+  width: 70px;
+  background-color: #fff;
+  color: black;
+  border-radius: 3px solid transparent;
+  border: 0px;
+}
+
+.home-btn:hover {
+  margin: 2%;
+  height: 46px;
+  width: 70px;
+  background-color: black;
+  color: #fff;
+  border: 0px;
+}
