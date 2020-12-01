@@ -4,7 +4,7 @@ import './Card.css'
 const Card = (props) => {
   console.log(props)
   return (
-  <img src={props.image} />
+    <img className="movie-card" src={props.image} />
   )
 }
 
