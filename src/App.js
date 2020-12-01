@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Movies from './Movies'
+import movieData from './movieData'
 import './App.css';
 
 class App extends Component {
   constructor (){
     super () 
-    
+    this.state = {movies: movieData.movies} 
   }
   render() {
     return (
       <React.Fragment>
         <nav></nav>
         <main>
-          <Movies/>
+          <Movies movies={this.state.movies}/>
         </main>
       </React.Fragment>
     )
+    
   }
 }
 
