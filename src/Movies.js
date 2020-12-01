@@ -1,10 +1,21 @@
 import React from 'react'
-// import Card from 'Card'
+import Card from './Card.js'
 import './Movies.css'
 
+
 const Movies = (props) => {
+  const movieCards = props.movies.map(movie => {
+    return (
+      <Card
+        image={movie.poster_path}
+        key={movie.id}  
+      />
+    )
+  })
   return (
-    <h1>Hello</h1>
+    <section className="movies-container">
+      {movieCards}
+    </section>
   )
 }
 
