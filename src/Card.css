@@ -1,0 +1,6 @@
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  margin: 3%;
+  width: 15%;
+}
