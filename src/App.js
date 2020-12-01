@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Movies from './Movies'
 import movieData from './movieData'
+import NavBar from './NavBar'
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav></nav>
+        <nav className="nav-bar">
+          <NavBar/>
+        </nav>
         <main>
           <Movies movies={this.state.movies}/>
         </main>
