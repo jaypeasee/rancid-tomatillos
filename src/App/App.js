@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Movies from './Movies'
-import movieData from './movieData'
-import NavBar from './NavBar'
-import './App.scss';
+import Movies from '../Movies/Movies'
+import movieData from '../movieData'
+import NavBar from '../NavBar/NavBar'
+import '../App/App.scss';
 
 class App extends Component {
   constructor (){
