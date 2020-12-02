@@ -1,3 +1,5 @@
+@import 'variables';
+
 
 .nav-bar {
   background-color: #bbbfca;
@@ -9,22 +11,19 @@
 .home-btn {
   margin: 2%;
   height: 46px;
-  width: 70px;
-  background-color: #fff;
-  color: black;
+  width: 100px;
+  background-color: #f4f4f2;
+  color: #495464;
   border-radius: 3px solid transparent;
   border: 0px;
   cursor: pointer;
   align-self: flex-end;
+  border-radius: 5px;
 }
 
 .home-btn:hover {
-  margin: 2%;
-  height: 46px;
-  width: 70px;
-  background-color: black;
-  color: #fff;
-  border: 0px;
+  background-color: #495464;
+  color: #f4f4f2;
 }
 
 .nav-title {
