@@ -1,7 +1,9 @@
 
 .nav-bar {
   background-color: #bbbfca;
-  height: 10vh;
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
 }
 
 .home-btn {
@@ -12,6 +14,8 @@
   color: black;
   border-radius: 3px solid transparent;
   border: 0px;
+  cursor: pointer;
+  align-self: flex-end;
 }
 
 .home-btn:hover {
@@ -21,4 +25,16 @@
   background-color: black;
   color: #fff;
   border: 0px;
+}
+
+.nav-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
