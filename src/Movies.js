@@ -8,6 +8,7 @@ const Movies = (props) => {
     return (
       <Card
         image={movie.poster_path}
+        alt={movie.title}
         key={movie.id}  
       />
     )
