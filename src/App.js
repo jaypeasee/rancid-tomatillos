@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import Movies from './Movies'
 import movieData from './movieData'
 import NavBar from './NavBar'
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor (){

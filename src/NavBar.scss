@@ -2,7 +2,7 @@
 
 
 .nav-bar {
-  background-color: #bbbfca;
+  background-color: $light-blue;
   height: 15vh;
   display: flex;
   justify-content: space-around;
@@ -12,8 +12,8 @@
   margin: 2%;
   height: 46px;
   width: 100px;
-  background-color: #f4f4f2;
-  color: #495464;
+  background-color: $dark-white;
+  color: $dark-blue;
   border-radius: 3px solid transparent;
   border: 0px;
   cursor: pointer;
@@ -22,8 +22,8 @@
 }
 
 .home-btn:hover {
-  background-color: #495464;
-  color: #f4f4f2;
+  background-color: $dark-blue;
+  color: $dark-white;
 }
 
 .nav-title {

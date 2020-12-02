@@ -1,7 +1,9 @@
+@import 'variables';
+
 .movies-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #495464;
+  background-color: $dark-blue;
 }

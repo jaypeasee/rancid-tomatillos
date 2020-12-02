@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card.js'
-import './Movies.css'
+import './Movies.scss'
 
 
 const Movies = (props) => {
