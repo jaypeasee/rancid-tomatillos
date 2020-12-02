@@ -9,6 +9,14 @@ class App extends Component {
     super () 
     this.state = {movies: movieData.movies} 
   }
+
+  showMovieView = (movieID) => {
+    const matchedMovie = movieData.movies.find(movie => {
+      return movie.id === parseInt(movieID)
+    })
+    console.log(matchedMovie);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -16,7 +24,9 @@ class App extends Component {
           <NavBar/>
         </nav>
         <main>
-          <Movies movies={this.state.movies}/>
+          <Movies movies={this.state.movies}
+          showMovieView={this.showMovieView}
+          />
         </main>
       </React.Fragment>
     )
@@ -24,3 +34,4 @@ class App extends Component {
 }
 
 export default App;
+
