@@ -5,13 +5,9 @@ import '../App/App.js'
 class Card extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isHidden: false
-    }
   }
 
   handleClick = (event) => {
-    this.setState({isHidden: true})
     this.props.showMovieView(event.target.id)
   }
 
