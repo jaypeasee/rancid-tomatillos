@@ -1,0 +1,39 @@
+@import 'variables';
+
+
+.nav-bar {
+  background-color: $light-blue;
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-btn {
+  margin: 2%;
+  height: 46px;
+  width: 100px;
+  background-color: $dark-white;
+  color: $dark-blue;
+  border-radius: 3px solid transparent;
+  border: 0px;
+  cursor: pointer;
+  align-self: flex-end;
+  border-radius: 5px;
+}
+
+.home-btn:hover {
+  background-color: $dark-blue;
+  color: $dark-white;
+}
+
+.nav-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

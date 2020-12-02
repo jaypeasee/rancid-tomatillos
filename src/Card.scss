@@ -1,0 +1,14 @@
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  margin: 3%;
+  width: 15%;
+  box-shadow: 4px 5px 4px 1px black;
+  border-radius: 4px;
+  cursor: pointer;
+ 
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+}
