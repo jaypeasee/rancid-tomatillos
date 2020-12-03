@@ -13,8 +13,8 @@ class MovieView extends Component {
                 <img className="movie-backdrop" src={backdrop_path} alt={title + " movie poster"}/>
                 <h1>{title}</h1>
                 <ul className="movie-specs">
-                    <li>Average Rating: {average_rating}</li>
-                    <li>Release Date: {release_date}</li>
+                    <li><b>Average Rating:</b> {Math.round(average_rating * 10) / 10}</li>
+                    <li><b>Release Date:</b> {release_date}</li>
                 </ul>
             </article>
         )
