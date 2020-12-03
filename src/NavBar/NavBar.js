@@ -1,7 +1,8 @@
 import React from 'react'
 import './NavBar.scss'
 
-const NavBar = () => {
+const NavBar = (props) => {
+  console.log(props)
   return (
     <div className="nav-bar">
       <div className="nav-title">
@@ -9,7 +10,11 @@ const NavBar = () => {
         <p>View Movie Reviews and Give Your Own Rating</p>
       </div>
       <div className="btn-container">
-        <button className="home-btn">Home</button>
+        {props.toggled && 
+        <button
+          className="home-btn"
+          onClick={props.toggleView}
+        >Home</button>}
       </div>
     </div>
   )

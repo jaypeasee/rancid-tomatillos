@@ -1,0 +1,30 @@
+@import '../variables';
+
+.movie-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+    color: $dark-blue;
+    align-items: center;
+    background-color: $dark-white;
+    box-shadow: 7px 9px black;
+    border-radius: 5px;
+}
+
+.movie-backdrop {
+    width: 95%;
+    margin-top: 2.5%;
+}
+
+.movie-specs {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+}
+
+.movie-page h1 {
+    font-size: 3.5em;
+}
