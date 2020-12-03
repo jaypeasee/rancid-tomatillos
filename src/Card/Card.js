@@ -7,21 +7,17 @@ class Card extends Component {
     super(props);
   }
 
-  handleClick = (event) => {
-    this.props.showMovieView(event.target.id)
-  }
-
   render() {
+    console.log(this.showMovieView)
     return (
     <img className="movie-card"
     id={this.props.id} 
     src={this.props.image} 
     alt={this.props.alt + " movie cover"}
-    onClick={this.handleClick}
+    onClick={() => this.showMovieView(this.props.id)}
     />
     )
   }
 }
-
 
 export default Card;

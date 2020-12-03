@@ -4,7 +4,6 @@ import './Movies.scss'
 
 
 const Movies = (props) => {
-  console.log(props.showMovieView)
   const movieCards = props.movies.map(movie => {
     return (
       <Card
