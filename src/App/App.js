@@ -15,36 +15,30 @@ class App extends Component {
     } 
   }
 
-  showMovieView = (movieID) => {
+  toggleView = (movieID) => {
     const matchedMovie = movieData.movies.find(movie => {
       return movie.id === parseInt(movieID)
     })
-    this.setState({
-      toggled: true,
-      currentMovie: matchedMovie
-    })
-  }
-
-  showHomeView = () => {
-    this.setState({
-        toggled: false,
+       this.setState({
+        toggled: !this.state.toggled,
+        currentMovie: matchedMovie
     })
   }
 
   render() {
-    console.log(this.showMovieView)
     return (
       <React.Fragment>
         <nav>
           <NavBar
-          showHomeView={this.showHomeView}
+          toggled={this.state.toggled}
+          toggleView={this.toggleView}
           />
         </nav>
         <main>
           {!this.state.toggled && 
           <Movies 
             movies={this.state.movies}
-            showMovieView={this.showMovieView}
+            toggleView={this.toggleView}
           />}
           {this.state.toggled && 
           <MovieView

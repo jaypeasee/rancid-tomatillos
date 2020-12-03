@@ -7,14 +7,16 @@ class Card extends Component {
     super(props);
   }
 
+
+
   render() {
-    console.log(this.showMovieView)
+    const {id, image, alt, toggleView} = this.props
     return (
     <img className="movie-card"
-    id={this.props.id} 
-    src={this.props.image} 
-    alt={this.props.alt + " movie cover"}
-    onClick={() => this.showMovieView(this.props.id)}
+      id={id} 
+      src={image} 
+      alt={alt + " movie cover"}
+      onClick={() => toggleView(id)}
     />
     )
   }

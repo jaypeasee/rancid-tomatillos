@@ -2,6 +2,7 @@ import React from 'react'
 import './NavBar.scss'
 
 const NavBar = (props) => {
+  console.log(props)
   return (
     <div className="nav-bar">
       <div className="nav-title">
@@ -12,7 +13,7 @@ const NavBar = (props) => {
         {props.toggled && 
         <button
           className="home-btn"
-          onClick={props.showHomeView}
+          onClick={props.toggleView}
         >Home</button>}
       </div>
     </div>
