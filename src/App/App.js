@@ -3,17 +3,31 @@ import Movies from '../Movies/Movies'
 import movieData from '../movieData'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
+import {getAllMovies} from '../apiCalls.js'
 import '../App/App.scss';
 
 class App extends Component {
   constructor (){
     super () 
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       toggled: false,
       currentMovie: {}
     } 
   }
+
+  componentDidMount() {
+    getAllMovies()
+      .then(data => this.setState({
+        movies: data.movies
+      }))
+      .catch(error => console.log(error))
+  }
+
+  //change this.state.movies to empty array
+  //add componentDidMount method that calls fetch request in separate file
+    //fetch request return a parsed array
+    //reassign this.state.movies
 
   toggleView = (movieID) => {
     const matchedMovie = movieData.movies.find(movie => {
@@ -24,7 +38,6 @@ class App extends Component {
         currentMovie: matchedMovie
     })
   }
-
   render() {
     return (
       <React.Fragment>
@@ -35,7 +48,7 @@ class App extends Component {
           />
         </nav>
         <main>
-          {!this.state.toggled && 
+          {!this.state.toggled && this.state.movies.length && 
           <Movies 
             movies={this.state.movies}
             toggleView={this.toggleView}

@@ -2,7 +2,6 @@ import React from 'react'
 import './NavBar.scss'
 
 const NavBar = (props) => {
-  console.log(props)
   return (
     <div className="nav-bar">
       <div className="nav-title">
