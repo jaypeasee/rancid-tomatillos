@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
-import movieData from '../movieData'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
-import {getAllMovies} from '../apiCalls.js'
+import {getAllMovies, getMovieByID} from '../apiCalls.js'
 import '../App/App.scss';
 
 class App extends Component {
@@ -24,20 +23,20 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  //change this.state.movies to empty array
-  //add componentDidMount method that calls fetch request in separate file
-    //fetch request return a parsed array
-    //reassign this.state.movies
+  //remove movieData file
+  //no longer find
+  //make a new function in apiCalls
+  //use interpolation to get the correct movie specs by passing in the id
+  //when fetch is done, change state
 
-  toggleView = (movieID) => {
-    const matchedMovie = movieData.movies.find(movie => {
-      return movie.id === parseInt(movieID)
-    })
-       this.setState({
-        toggled: !this.state.toggled,
-        currentMovie: matchedMovie
-    })
+  toggleView = (ID) => {
+    getMovieByID(ID)
+      .then(data => this.setState({
+        toggled: !this.toggled,
+        currentMovie: data.movie
+    }))
   }
+
   render() {
     return (
       <React.Fragment>
