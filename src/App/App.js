@@ -23,18 +23,17 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  //remove movieData file
-  //no longer find
-  //make a new function in apiCalls
-  //use interpolation to get the correct movie specs by passing in the id
-  //when fetch is done, change state
-
   toggleView = (ID) => {
-    getMovieByID(ID)
-      .then(data => this.setState({
-        toggled: !this.toggled,
-        currentMovie: data.movie
-    }))
+    if (ID) {
+      getMovieByID(ID)
+        .then(data => this.setState({
+          currentMovie: data.movie
+        }))
+        .catch(error => console.log(error))
+    }
+    this.setState({
+      toggled: !this.toggled
+    })
   }
 
   render() {
