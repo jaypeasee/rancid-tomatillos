@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   showChosenMovie = (ID) => {
-    if (ID) {
       getMovieByID(ID)
         .then(data => this.setState({
           currentMovie: data.movie,
@@ -36,7 +35,6 @@ class App extends Component {
           currentMovie: {...this.state.currentMovie, videos}
         }))
         .catch(error => console.log(error))
-    }
   }
 
   returnToHome = () => {

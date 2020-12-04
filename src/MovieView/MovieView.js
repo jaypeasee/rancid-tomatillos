@@ -10,7 +10,8 @@ class MovieView extends Component {
     }
 
     render() {
-        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline} = this.props.currentMovie
+        console.log(this.props)
+        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.props.currentMovie
         return (
             <article id={id} className="movie-page">
                 <img className="movie-backdrop" src={backdrop_path} alt={title + " movie poster"}/>
@@ -25,6 +26,9 @@ class MovieView extends Component {
                     <li><b>Budget:</b> ${budget}</li>
                     <li><b>Revenue:</b> ${revenue}</li>
                 </ul>
+                <video className="movie-trailer">
+                    <source />
+                </video>
             </article>
         )
     }
