@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
-import {getAllMovies, getMovieByID} from '../apiCalls.js'
+import {getAllMovies, getMovieByID, getMovieTrailerByID} from '../apiCalls.js'
 import '../App/App.scss';
 
 class App extends Component {
@@ -30,6 +30,11 @@ class App extends Component {
           currentMovie: data.movie,
           toggled: true
         }))
+        .then(() => getMovieTrailerByID(ID))
+        .then(data => data.videos)
+        .then(videos => this.setState({
+          currentMovie: {...this.state.currentMovie, videos}
+        }))
         .catch(error => console.log(error))
     }
   }
@@ -45,6 +50,7 @@ class App extends Component {
       <React.Fragment>
         <nav>
           <NavBar
+          //
           toggled={this.state.toggled}
           returnToHome={this.returnToHome}
           />
