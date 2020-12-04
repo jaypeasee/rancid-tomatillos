@@ -10,13 +10,13 @@ class Card extends Component {
 
 
   render() {
-    const {id, image, alt, toggleView} = this.props
+    const {id, image, alt, showChosenMovie} = this.props
     return (
     <img className="movie-card"
       id={id} 
       src={image} 
       alt={alt + " movie cover"}
-      onClick={() => toggleView(id)}
+      onClick={() => showChosenMovie(id)}
     />
     )
   }

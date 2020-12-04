@@ -12,7 +12,7 @@ const NavBar = (props) => {
         {props.toggled && 
         <button
           className="home-btn"
-          onClick={props.toggleView}
+          onClick={props.returnToHome}
         >Home</button>}
       </div>
     </div>

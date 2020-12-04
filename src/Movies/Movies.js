@@ -11,7 +11,7 @@ const Movies = (props) => {
         image={movie.poster_path}
         alt={movie.title}
         key={movie.id}  
-        toggleView={props.toggleView}
+        showChosenMovie={props.showChosenMovie}
       />
     )
   })

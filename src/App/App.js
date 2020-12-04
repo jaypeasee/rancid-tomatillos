@@ -23,16 +23,20 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  toggleView = (ID) => {
+  showChosenMovie = (ID) => {
     if (ID) {
       getMovieByID(ID)
         .then(data => this.setState({
-          currentMovie: data.movie
+          currentMovie: data.movie,
+          toggled: true
         }))
         .catch(error => console.log(error))
     }
+  }
+
+  returnToHome = () => {
     this.setState({
-      toggled: !this.toggled
+      toggled: false
     })
   }
 
@@ -42,14 +46,14 @@ class App extends Component {
         <nav>
           <NavBar
           toggled={this.state.toggled}
-          toggleView={this.toggleView}
+          returnToHome={this.returnToHome}
           />
         </nav>
         <main>
           {!this.state.toggled && this.state.movies.length && 
           <Movies 
             movies={this.state.movies}
-            toggleView={this.toggleView}
+            showChosenMovie={this.showChosenMovie}
           />}
           {this.state.toggled && 
           <MovieView
