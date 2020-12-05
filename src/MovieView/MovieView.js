@@ -27,7 +27,6 @@ class MovieView extends Component {
                 </ul>
                     <iframe
                         src={`https://www.youtube.com/embed/${videos[0].key}`}
-                        // frameborder='0'
                         allow='autoplay; encrypted-media'
                         allowFullScreen
                         title='video'
@@ -35,6 +34,7 @@ class MovieView extends Component {
                         height='550px'
                         className='movie-trailer'
                         alt={`${title} trailer`} 
+                        role="button"
                     />
             </article>
         )
