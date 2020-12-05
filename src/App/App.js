@@ -1,27 +1,52 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
-import movieData from '../movieData'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
+import {getAllMovies, getMovieByID, getMovieTrailerByID} from '../apiCalls.js'
 import '../App/App.scss';
 
 class App extends Component {
   constructor (){
     super () 
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       toggled: false,
       currentMovie: {}
     } 
   }
 
-  toggleView = (movieID) => {
-    const matchedMovie = movieData.movies.find(movie => {
-      return movie.id === parseInt(movieID)
-    })
-       this.setState({
-        toggled: !this.state.toggled,
-        currentMovie: matchedMovie
+  componentDidMount() {
+    getAllMovies()
+      .then(data => this.setState({
+        movies: data.movies
+      }))
+      .catch(error => console.log(error))
+  }
+
+  showChosenMovie = (ID) => {
+  // showChosenMovie = async (ID) => {
+  //     const movieDetails = await getMovieByID(ID)
+  //     const movieTrailer = await getMovieTrailerByID(ID)
+  //     this.setState({
+  //       currentMovie: {...movieDetails.movie, ...movieTrailer},
+  //       toggled: true
+  //     })
+    const movieDetails = getMovieByID(ID)
+    const movieTrailer = getMovieTrailerByID(ID)
+    Promise.all([movieDetails, movieTrailer])
+      .then(data => {
+        this.setState({
+          currentMovie: {...data[0].movie, ...data[1]},
+          toggled: true
+        })
+      })
+      .catch(error => console.log(error))
+  }
+
+  returnToHome = () => {
+    this.setState({
+      toggled: false,
+      currentMovie: {}
     })
   }
 
@@ -31,14 +56,14 @@ class App extends Component {
         <nav>
           <NavBar
           toggled={this.state.toggled}
-          toggleView={this.toggleView}
+          returnToHome={this.returnToHome}
           />
         </nav>
         <main>
-          {!this.state.toggled && 
+          {!this.state.toggled && this.state.movies.length && 
           <Movies 
             movies={this.state.movies}
-            toggleView={this.toggleView}
+            showChosenMovie={this.showChosenMovie}
           />}
           {this.state.toggled && 
           <MovieView
