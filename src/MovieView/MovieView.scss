@@ -30,6 +30,7 @@
 .movie-backdrop {
     width: 95%;
     margin-top: 2.5%;
+    border-radius: 5px;
 }
 
 .movie-specs {
@@ -43,4 +44,9 @@
 
 .movie-page h1 {
     font-size: 3.5em;
+}
+
+.movie-trailer {
+    border-style: none;
+    padding-bottom: 40px;
 }

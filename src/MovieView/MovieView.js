@@ -1,7 +1,6 @@
 import date from 'date-and-time';
 
 import React, {Component} from 'react'
-import moment from 'moment'
 import './MovieView.scss'
 
 class MovieView extends Component {
@@ -26,9 +25,17 @@ class MovieView extends Component {
                     <li><b>Budget:</b> ${budget}</li>
                     <li><b>Revenue:</b> ${revenue}</li>
                 </ul>
-                <video className="movie-trailer">
-                    <source />
-                </video>
+                    <iframe
+                        src={`https://www.youtube.com/embed/${videos[0].key}`}
+                        // frameborder='0'
+                        allow='autoplay; encrypted-media'
+                        allowFullScreen
+                        title='video'
+                        width='1000px'
+                        height='550px'
+                        className='movie-trailer'
+                        alt={`${title} trailer`} 
+                    />
             </article>
         )
     }
