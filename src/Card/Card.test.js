@@ -39,4 +39,3 @@ describe('Card', () => {
 
 
 
-export default Card;
