@@ -13,7 +13,7 @@ class Card extends Component {
     const {id, image, alt, showChosenMovie} = this.props
     return (
     <img className="movie-card"
-      aria-label={alt + " movie cover"}
+      role="button"
       id={id} 
       src={image} 
       alt={alt + " movie cover"}

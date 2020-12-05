@@ -12,9 +12,11 @@ describe('Card', () => {
     id={2}
     src="https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
     alt="money plane"
+    aria-label="money plane"
     />)
   
     expect(screen.getByAltText("money plane movie cover")).toBeInTheDocument()
+    expect(screen.getByRole("button")).toBeInTheDocument()
     //is there a way we can screen for src 
   })
 
