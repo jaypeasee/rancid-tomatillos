@@ -24,22 +24,29 @@ class App extends Component {
   }
 
   showChosenMovie = (ID) => {
-      getMovieByID(ID)
-        .then(data => this.setState({
-          currentMovie: data.movie,
+  // showChosenMovie = async (ID) => {
+  //     const movieDetails = await getMovieByID(ID)
+  //     const movieTrailer = await getMovieTrailerByID(ID)
+  //     this.setState({
+  //       currentMovie: {...movieDetails.movie, ...movieTrailer},
+  //       toggled: true
+  //     })
+    const movieDetails = getMovieByID(ID)
+    const movieTrailer = getMovieTrailerByID(ID)
+    Promise.all([movieDetails, movieTrailer])
+      .then(data => {
+        this.setState({
+          currentMovie: {...data[0].movie, ...data[1]},
           toggled: true
-        }))
-        .then(() => getMovieTrailerByID(ID))
-        .then(data => data.videos)
-        .then(videos => this.setState({
-          currentMovie: {...this.state.currentMovie, videos}
-        }))
-        .catch(error => console.log(error))
+        })
+      })
+      .catch(error => console.log(error))
   }
 
   returnToHome = () => {
     this.setState({
-      toggled: false
+      toggled: false,
+      currentMovie: {}
     })
   }
 
@@ -48,7 +55,6 @@ class App extends Component {
       <React.Fragment>
         <nav>
           <NavBar
-          //
           toggled={this.state.toggled}
           returnToHome={this.returnToHome}
           />
