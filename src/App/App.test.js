@@ -1,5 +1,5 @@
 import App from './App';
-import { render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { getAllMovies, getMovieByID, getMovieTrailerByID } from '../apiCalls'
 jest.mock('../apiCalls')
@@ -62,27 +62,26 @@ describe('App', () => {
     expect(homeBtn).toBeInTheDocument()
   })
 
-  // it('should call a function when home button is clicked', async () => {
-  //   render(<App />)
+  it('should call a function when home button is clicked', async () => {
+    render(<App />)
 
-  //   const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
-  //   const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
+    const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
+    const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
     
-  //   getMovieByID.mockResolvedValueOnce(allMovieSpecs);
-  //   getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
 
-  //   const mockReturnToHome = await waitFor(() => jest.fn())
-  //   render(<NavBar
-  //     returnToHome={mockReturnToHome}
-  //   />)
-
-  //   const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
+    const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     
-  //   userEvent.click(firstMovieAltTxt);
-  //   let homeBtn = await waitFor(() => screen.getByRole("button")) 
-  //   userEvent.click(homeBtn)
+    userEvent.click(firstMovieAltTxt);
 
-    
-  //   expect(mockReturnToHome).toHaveBeenCalled();
-  //})
+    let homeBtn = await waitFor(() => screen.getByRole("button")) 
+
+    userEvent.click(homeBtn)
+
+    const notChosenMovie = screen.getByAltText('Mulan movie cover')
+
+    expect(notChosenMovie).toBeInTheDocument();
+    expect(homeBtn).not.toBeInTheDocument();
+  })
 });
