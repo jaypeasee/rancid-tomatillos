@@ -11,6 +11,7 @@ const NavBar = (props) => {
       <div className="btn-container">
         {props.toggled && 
         <button
+          role="button"
           className="home-btn"
           onClick={props.returnToHome}
         >Home</button>}
