@@ -4,6 +4,7 @@ import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
 import {getAllMovies, getMovieByID, getMovieTrailerByID} from '../apiCalls.js'
 import '../App/App.scss';
+import Error from '../Error/Error.js'
 
 class App extends Component {
   constructor (){
@@ -11,7 +12,8 @@ class App extends Component {
     this.state = {
       movies: [],
       toggled: false,
-      currentMovie: {}
+      currentMovie: {},
+      error: ""
     } 
   }
 
@@ -20,7 +22,11 @@ class App extends Component {
       .then(data => this.setState({
         movies: data.movies
       }))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({
+        error: error,
+        currentMovie: {},
+        toggled: false
+      }))
   }
 
   showChosenMovie = (ID) => {
@@ -37,10 +43,15 @@ class App extends Component {
       .then(data => {
         this.setState({
           currentMovie: {...data[0].movie, ...data[1]},
-          toggled: true
+          toggled: true,
+          error:""
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => this.setState({
+        error: error,
+        currentMovie: {},
+        toggled: false
+      }))
   }
 
   returnToHome = () => {
@@ -60,6 +71,9 @@ class App extends Component {
           />
         </nav>
         <main>
+          <Error 
+            errorMessage={this.state.error.message}
+          />
           {!this.state.toggled && this.state.movies.length && 
           <Movies 
             movies={this.state.movies}
