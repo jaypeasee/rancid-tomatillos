@@ -6,7 +6,6 @@ import { TRUE } from 'node-sass'
 
 describe('NavBar', () => {
   it('should have a title and subtitle', () => {
-    const mockReturnToHome = jest.fn()
     render(<NavBar />)
   
     

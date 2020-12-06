@@ -9,8 +9,9 @@ const NavBar = (props) => {
         <p>View Movie Reviews and Give Your Own Rating</p>
       </div>
       <div className="btn-container">
-        {props.currentMovie && 
+        {props.toggled && 
         <button
+          role="button"
           className="home-btn"
           onClick={props.returnToHome}
         >Home</button>}
