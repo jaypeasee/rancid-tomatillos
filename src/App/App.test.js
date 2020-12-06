@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { getAllMovies, getMovieByID, getMovieTrailerByID } from '../apiCalls'
 jest.mock('../apiCalls')
 import userEvent from '@testing-library/user-event'
+import NavBar from '../NavBar/NavBar.js'
 
 
 describe('App', () => {
@@ -23,16 +24,7 @@ describe('App', () => {
     expect(firstMovieAltTxt).toBeInTheDocument()
     expect(secMovieAltTxt).toBeInTheDocument()
   })
-//render the app - 
-//fire an event on click - 
-//to whatever function is passed  - 
-//screen for mulan -
-//fire event on click on that - 
-//then screen again with another wait waitfor - 
-//on that movie but screen for the video and 
-//create new var with same id but with all movie specs screen for it
-//once done screening
-//check that its in the doc 
+
   it('should show chosen movie specs', async () => {
     render(<App />)
     const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
@@ -69,4 +61,28 @@ describe('App', () => {
 
     expect(homeBtn).toBeInTheDocument()
   })
+
+  // it('should call a function when home button is clicked', async () => {
+  //   render(<App />)
+
+  //   const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
+  //   const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
+    
+  //   getMovieByID.mockResolvedValueOnce(allMovieSpecs);
+  //   getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+
+  //   const mockReturnToHome = await waitFor(() => jest.fn())
+  //   render(<NavBar
+  //     returnToHome={mockReturnToHome}
+  //   />)
+
+  //   const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
+    
+  //   userEvent.click(firstMovieAltTxt);
+  //   let homeBtn = await waitFor(() => screen.getByRole("button")) 
+  //   userEvent.click(homeBtn)
+
+    
+  //   expect(mockReturnToHome).toHaveBeenCalled();
+  //})
 });
