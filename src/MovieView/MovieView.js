@@ -1,5 +1,4 @@
 import date from 'date-and-time';
-
 import React, {Component} from 'react'
 import './MovieView.scss'
 
@@ -27,6 +26,7 @@ class MovieView extends Component {
                 </ul>
                     <iframe
                         src={`https://www.youtube.com/embed/${videos[0].key}`}
+                        data-testid={videos[0].id}
                         allow='autoplay; encrypted-media'
                         allowFullScreen
                         title='video'

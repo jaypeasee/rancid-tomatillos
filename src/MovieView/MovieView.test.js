@@ -60,7 +60,7 @@ describe('MovieView', () => {
       currentMovie={mockMovie}
     />)
 
-    expect(screen.getByRole("button")).toBeInTheDocument()
+    expect(screen.getByTestId(331)).toBeInTheDocument()
     
   })
 })
