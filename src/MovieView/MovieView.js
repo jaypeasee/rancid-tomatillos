@@ -34,7 +34,6 @@ class MovieView extends Component {
                         height='550px'
                         className='movie-trailer'
                         alt={`${title} trailer`} 
-                        role="button"
                     />
             </article>
         )
