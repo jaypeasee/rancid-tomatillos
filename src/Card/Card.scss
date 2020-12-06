@@ -12,3 +12,17 @@
 .movie-card:hover {
   transform: scale(1.1);
 }
+
+@media only screen and (max-width: 900px){
+  .movie-card {
+    width: 30%;
+  }
+  
+}
+
+@media only screen and (max-width: 600px){
+  .movie-card {
+    width: 60%;
+  }
+}
+  
