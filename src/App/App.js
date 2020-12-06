@@ -71,9 +71,9 @@ class App extends Component {
           />
         </nav>
         <main>
-          <Error 
+          {this.state.error && <Error 
             errorMessage={this.state.error.message}
-          />
+          />}
           {!this.state.toggled && this.state.movies.length && 
           <Movies 
             movies={this.state.movies}
