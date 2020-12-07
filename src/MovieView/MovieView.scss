@@ -28,16 +28,16 @@
 }
 
 .movie-backdrop {
-    width: 95%;
-    margin-top: 2.5%;
+    width: 90%;
+    margin-top: 5%;
     border-radius: 5px;
 }
 
 .movie-specs {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    margin-bottom: 5%;
+    // width: 100%;
+    margin: 5%;
     font-size: 1.5em;
     flex-wrap: wrap;
 }
@@ -48,7 +48,14 @@
 
 .movie-trailer {
     border-style: none;
-    padding-bottom: 40px;
+    padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .movie-trailer {
+        width: 700px;
+        height: 400px;
+    }
 }
 
 @media only screen and (max-width: 900px){
