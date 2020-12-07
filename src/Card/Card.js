@@ -10,15 +10,21 @@ class Card extends Component {
 
 
   render() {
-    const {id, image, alt, showChosenMovie} = this.props
+    const {id, image, title, average_rating, showChosenMovie} = this.props
     return (
-    <img className="movie-card"
+    <section 
       role="button"
-      id={id} 
-      src={image} 
-      alt={alt + " movie cover"}
       onClick={() => showChosenMovie(id)}
-    />
+      id={id}
+      className="movie-card">
+      <img
+        className="movie-img"
+        src={image} 
+        alt={title + " movie cover"}
+        />
+        <h2>{title}</h2>
+        <p>Rating: {Math.round(average_rating * 10) / 10}</p>
+    </section>
     )
   }
 }

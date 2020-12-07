@@ -1,23 +1,40 @@
+@import '../variables';
+
 .movie-card {
+  margin-top: 2%;
   display: flex;
-  flex-direction: row;
-  margin: 3%;
+  flex-direction: column;
+  margin: 10% 4% 0 4%;
+  color: $light-white;
+  align-items: center;
   width: 15%;
+  cursor: pointer;
+}
+
+.movie-card h2, .movie-card p {
+  margin-bottom: 0;
+}
+
+.movie-img {
+  width: 100%;
   box-shadow: 4px 5px 4px 1px black;
   border-radius: 4px;
-  cursor: pointer;
- 
 }
 
 .movie-card:hover {
   transform: scale(1.1);
 }
 
+@media only screen and (max-width: 1300px) {
+  .movie-card {
+    width: 23%;
+  }
+}
+
 @media only screen and (max-width: 900px){
   .movie-card {
     width: 30%;
-  }
-  
+  } 
 }
 
 @media only screen and (max-width: 600px){
