@@ -15,7 +15,7 @@ class Card extends Component {
     <section 
       role="button"
       onClick={() => showChosenMovie(id)}
-      id={id}
+      data-testid={id}
       className="movie-card">
       <img
         className="movie-img"
