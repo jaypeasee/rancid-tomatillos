@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import NavBar from './NavBar.js'
-import { TRUE } from 'node-sass'
 
 
 describe('NavBar', () => {
@@ -9,8 +8,8 @@ describe('NavBar', () => {
     render(<NavBar />)
   
     
-    expect(screen.getByText('Welcome to Rancid Tomatillos')).toBeInTheDocument()
-    expect(screen.getByText('View Movie Reviews and Give Your Own Rating')).toBeInTheDocument()
+    expect(screen.getByText('Welcome to Rancid Tomatillos!')).toBeInTheDocument()
+    expect(screen.getByText('A page to view detailed movie reviews and their trailers')).toBeInTheDocument()
   })
 
   // it('should return to home ', () => {
