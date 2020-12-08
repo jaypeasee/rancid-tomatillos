@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../mixins.scss';
 
 .movie-page h1 {
     margin-bottom: 0;
@@ -16,12 +17,10 @@
 }
 
 .movie-page {
-    display: flex;
-    flex-direction: column;
+    @include flex-column-center;
     justify-content: center;
     margin: 5% 20%;
     color: $forest;
-    align-items: center;
     background-color: $light-green;
     box-shadow: 7px 9px black;
     border-radius: 5px;
