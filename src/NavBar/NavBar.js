@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavBar.scss'
+import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
   return (
@@ -10,11 +11,13 @@ const NavBar = (props) => {
       </div>
       <div className="btn-container">
         {props.toggled && 
-        <button
+        <Link to="/">
+          <button
           role="button"
           className="home-btn"
           onClick={props.returnToHome}
-        >Home</button>}
+        >Home</button>
+        </Link>}
       </div>
     </div>
   )

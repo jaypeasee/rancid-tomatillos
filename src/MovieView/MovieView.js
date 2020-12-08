@@ -8,6 +8,11 @@ class MovieView extends Component {
     }
 
     render() {
+        if (!this.props.currentMovie.title) {
+            return (
+                <h1>Loading...</h1>
+            )
+        }
         const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.props.currentMovie
         return (
             <article id={id} className="movie-page">
