@@ -23,7 +23,7 @@ class Card extends Component {
         alt={title + " movie cover"}
         />
         <h2>{title}</h2>
-        <p>Rating: {Math.round(average_rating * 10) / 10}</p>
+        <p>Rating: {Math.round(average_rating * 100) / 10}%</p>
     </section>
     )
   }
