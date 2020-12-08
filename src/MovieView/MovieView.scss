@@ -16,6 +16,11 @@
     margin: 0 5%;
 }
 
+.movie-page h2 {
+    margin: 2%;
+    text-align: center;
+}
+
 .movie-page {
     @include flex-column-center;
     justify-content: center;
@@ -78,19 +83,18 @@
         margin: 5% 10%;
     }
 }
-@media only screen and (max-width: 700px){
-    .movie-page h1 {
-        font-size: 2em;
-    }
-    .movie-page p {
-        font-size: small;
-    }
-}
 
 @media only screen and (max-width: 700px) {
     .movie-trailer {
         width: 300px;
         height: 175px;
+    }
+    .movie-page h1 {
+        font-size: 2em;
+    }
+
+    .movie-page p {
+        font-size: small;
     }
 }
 

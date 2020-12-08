@@ -52,14 +52,13 @@ class App extends Component {
 
   render() {
     return (
-      <body>
+      <main>
         <nav>
           <NavBar
           returnToHome={this.returnToHome}
           currentMovie={this.state.currentMovie}
           />
         </nav>
-        <main>
           {this.state.error && <Error 
             errorMessage={this.state.error.message}
           />}
@@ -83,8 +82,7 @@ class App extends Component {
               />
             }}
           />
-        </main>
-      </body>
+      </main>
     )
   }
 }

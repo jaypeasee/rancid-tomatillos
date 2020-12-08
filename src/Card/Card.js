@@ -15,11 +15,12 @@ class Card extends Component {
     return (
     <Link 
     to={`/movie-review/${id}`}
-    onClick={() => showChosenMovie(id)}>
+    onClick={() => showChosenMovie(id)}
+    className="movie-card">
       <section 
         role="button"
         data-testid={id}
-        className="movie-card">
+        >
         <img
           className="movie-img"
           src={image} 
