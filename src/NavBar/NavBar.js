@@ -6,7 +6,7 @@ const NavBar = (props) => {
     <div className="nav-bar">
       <div className="nav-title">
         <h1>Welcome to Rancid Tomatillos!</h1>
-        <p>A page to view detailed movie reviews and their trailers</p>
+        <h3>A page to view detailed movie reviews and their trailers</h3>
       </div>
       <div className="btn-container">
         {props.toggled && 

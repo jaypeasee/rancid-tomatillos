@@ -63,7 +63,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <body>
         <nav>
           <NavBar
           toggled={this.state.toggled}
@@ -84,7 +84,7 @@ class App extends Component {
             currentMovie={this.state.currentMovie}
           />}
         </main>
-      </React.Fragment>
+      </body>
     )
   }
 }

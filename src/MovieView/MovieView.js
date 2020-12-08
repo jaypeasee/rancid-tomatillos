@@ -16,7 +16,7 @@ class MovieView extends Component {
                 <img className="movie-backdrop" src={backdrop_path} alt={title + " movie poster"}/>
                 <p>{overview}</p>
                 <ul className="movie-specs">
-                    <li><b>Average Rating:</b> {Math.round(average_rating * 10)}%</li>
+                    <li><b>Rating:</b> {Math.round(average_rating * 10)}%</li>
                     <li><b>Genres:</b> {genres.join(", ")}</li>
                     <li><b>Release Date:</b> {date.transform(release_date, 'YYYY-MM-DD', 'MMM DD, YYYY')}</li>
                     <li><b>Runtime:</b> {runtime} minutes</li>

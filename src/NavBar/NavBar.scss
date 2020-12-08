@@ -1,19 +1,16 @@
 @import '../variables';
 
-p, h1 {
+h3, h1 {
   margin-left: 10%;
 }
 
 h1 {
   font-size: 2em;
-}
-
-p {
-  font-size: 1.25em;
+  font-family: 'Bungee', cursive;
 }
 
 .nav-bar {
-  background-color: $gold;
+  background-color: $pickle;
   display: flex;
   justify-content: space-around;
 }
@@ -34,7 +31,7 @@ p {
 
 .home-btn:hover {
   background-color: $forest;
-  color: #d6efc7;
+  color: $light-green;
 }
 
 .nav-title {
@@ -43,7 +40,7 @@ p {
   width: 50%;
 }
 
-.nav-title p, h1 {
+.nav-title h3, h1 {
   color: $forest;
 }
 
