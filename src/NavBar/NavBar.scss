@@ -13,7 +13,7 @@ p {
 }
 
 .nav-bar {
-  background-color: $light-blue;
+  background-color: $gold;
   display: flex;
   justify-content: space-around;
 }
@@ -23,8 +23,8 @@ p {
   margin: 10%;
   height: 60px;
   width: 125px;
-  background-color: $dark-white;
-  color: $dark-blue;
+  background-color: $light-green;
+  color: $forest;
   border-radius: 3px solid transparent;
   border: 0px;
   cursor: pointer;
@@ -33,14 +33,18 @@ p {
 }
 
 .home-btn:hover {
-  background-color: $dark-blue;
-  color: $dark-white;
+  background-color: $forest;
+  color: #d6efc7;
 }
 
 .nav-title {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+.nav-title p, h1 {
+  color: $forest;
 }
 
 .btn-container {
