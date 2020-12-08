@@ -14,7 +14,7 @@ class Card extends Component {
     const {id, image, title, average_rating, showChosenMovie} = this.props
     return (
     <Link 
-    to={`/MovieView/${id}`}
+    to={`/movie-review/${id}`}
     onClick={() => showChosenMovie(id)}>
       <section 
         role="button"

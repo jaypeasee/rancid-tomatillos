@@ -56,13 +56,14 @@ class App extends Component {
         <nav>
           <NavBar
           returnToHome={this.returnToHome}
+          currentMovie={this.state.currentMovie}
           />
         </nav>
         <main>
           {this.state.error && <Error 
             errorMessage={this.state.error.message}
           />}
-          {this.state.movies.length && 
+          {this.state.movies.length > 0 && 
           <Route 
             exact 
             path ="/" 
@@ -75,7 +76,7 @@ class App extends Component {
           }
           <Route 
             exact 
-            path='/MovieView/:id'
+            path='/movie-review/:id'
             render={() => {
               return <MovieView
                 currentMovie={this.state.currentMovie}
