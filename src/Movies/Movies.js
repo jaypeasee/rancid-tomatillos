@@ -9,8 +9,9 @@ const Movies = (props) => {
       <Card
         id={movie.id}
         image={movie.poster_path}
-        alt={movie.title}
+        title={movie.title}
         key={movie.id}  
+        average_rating={movie.average_rating}
         showChosenMovie={props.showChosenMovie}
       />
     )

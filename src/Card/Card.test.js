@@ -9,15 +9,15 @@ describe('Card', () => {
 
   it('should display render a complete card', () => {
     render(<Card
-    id={2}
+    data-testid={2}
     src="https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
-    alt="money plane"
+    title="money plane"
     aria-label="money plane"
+    average_rating={6.7}
     />)
-  
     expect(screen.getByAltText("money plane movie cover")).toBeInTheDocument()
-    expect(screen.getByRole("button")).toBeInTheDocument()
-    //is there a way we can screen for src 
+    expect(screen.getByText('money plane')).toBeInTheDocument()
+    expect(screen.getByText('Rating: 6.7')).toBeInTheDocument();
   })
 
   it('should show chosen movie is called with an ID', () => {
@@ -25,7 +25,7 @@ describe('Card', () => {
     render(<Card 
       id={2}
       src="https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
-      alt="money plane"
+      title="money plane"
       showChosenMovie={mockShowChosenMovie}
     />)
 

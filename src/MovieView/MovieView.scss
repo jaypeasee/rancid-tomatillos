@@ -1,12 +1,13 @@
 @import '../variables';
+@import '../mixins.scss';
 
 .movie-page h1 {
     margin-bottom: 0;
+    margin-left: 0
 }
 
 .movie-page p {
     width: 60%;
-    margin-top: 0;
     font-weight: 700;
 }
 
@@ -16,28 +17,25 @@
 }
 
 .movie-page {
-    display: flex;
-    flex-direction: column;
+    @include flex-column-center;
     justify-content: center;
-    margin: 5%;
-    color: $dark-blue;
-    align-items: center;
-    background-color: $dark-white;
+    margin: 5% 20%;
+    color: $forest;
+    background-color: $light-green;
     box-shadow: 7px 9px black;
     border-radius: 5px;
 }
 
 .movie-backdrop {
-    width: 95%;
-    margin-top: 2.5%;
+    width: 90%;
+    margin-top: 5%;
     border-radius: 5px;
 }
 
 .movie-specs {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    margin-bottom: 5%;
+    margin: 5%;
     font-size: 1.5em;
     flex-wrap: wrap;
 }
@@ -48,28 +46,58 @@
 
 .movie-trailer {
     border-style: none;
-    padding-bottom: 40px;
+    padding-bottom: 5%;
+    width: 750px;
+    height: 425px;
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1400px) {
+    .movie-trailer {
+        width: 600px;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
     .movie-trailer {
         width: 500px;
         height: 285px;
     }
+}
 
+@media only screen and (max-width: 900px){
     .movie-page li {
         font-size: small;
     }
+
+    .movie-page p {
+        margin-top: 5%;
+    }
+
+    .movie-page {
+        margin: 5% 10%;
+    }
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 700px){
     .movie-page h1 {
         font-size: 2em;
     }
     .movie-page p {
         font-size: small;
     }
+}
+
+@media only screen and (max-width: 700px) {
     .movie-trailer {
-        width: 350px;
-        height: 200px;
+        width: 300px;
+        height: 175px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .movie-trailer {
+        width: 250px;
+        height: 150px;
     }
 }

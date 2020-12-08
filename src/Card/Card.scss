@@ -1,23 +1,49 @@
+@import '../variables';
+@import '../mixins.scss';
+
 .movie-card {
-  display: flex;
-  flex-direction: row;
-  margin: 3%;
+  margin-top: 2%;
+  @include flex-column-center;
+  margin: 10% 4% 0 4%;
+  color: $light-green;
   width: 15%;
+  cursor: pointer;
+}
+
+.movie-card h2, .movie-card p {
+  margin-bottom: 0;
+  margin-left: 0;
+  text-align: center;
+}
+
+// .movie-card h2:hover, .movie-card p:hover {
+//   color: $pickle;
+// }
+
+.movie-img {
+  width: 100%;
   box-shadow: 4px 5px 4px 1px black;
   border-radius: 4px;
-  cursor: pointer;
- 
 }
 
 .movie-card:hover {
   transform: scale(1.1);
 }
 
+.movie-card:hover p, .movie-card:hover h2 {
+  color: $gold;
+}
+
+@media only screen and (max-width: 1300px) {
+  .movie-card {
+    width: 23%;
+  }
+}
+
 @media only screen and (max-width: 900px){
   .movie-card {
     width: 30%;
-  }
-  
+  } 
 }
 
 @media only screen and (max-width: 600px){

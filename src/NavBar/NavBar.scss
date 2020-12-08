@@ -1,19 +1,27 @@
 @import '../variables';
 
+h3, h1 {
+  margin-left: 10%;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: 'Bungee', cursive;
+}
 
 .nav-bar {
-  background-color: $light-blue;
-  height: 15vh;
+  background-color: $pickle;
   display: flex;
   justify-content: space-around;
 }
 
 .home-btn {
-  margin: 2%;
-  height: 46px;
-  width: 100px;
-  background-color: $dark-white;
-  color: $dark-blue;
+  font-size: 1.25em;
+  margin: 10%;
+  height: 60px;
+  width: 125px;
+  background-color: $light-green;
+  color: $forest;
   border-radius: 3px solid transparent;
   border: 0px;
   cursor: pointer;
@@ -22,24 +30,45 @@
 }
 
 .home-btn:hover {
-  background-color: $dark-blue;
-  color: $dark-white;
+  background-color: $forest;
+  color: $light-green;
 }
 
 .nav-title {
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+
+.nav-title h3, h1 {
+  color: $forest;
 }
 
 .btn-container {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 @media only screen and (max-width: 900px){
   .nav-bar {
-  height: 20vh;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  p {
+    margin-top: 0;
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .home-btn {
+    font-size: 1em;
+    width: 100px;
+    height: 50px;
   }
 }

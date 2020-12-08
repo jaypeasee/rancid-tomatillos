@@ -27,7 +27,7 @@ describe('App', () => {
 
   it('should show chosen movie specs', async () => {
     render(<App />)
-    const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
+    const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"hey hey hey hey" ,genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
     const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
     
     getMovieByID.mockResolvedValueOnce(allMovieSpecs);
@@ -37,11 +37,11 @@ describe('App', () => {
     
     userEvent.click(firstMovieAltTxt);
 
-    let firstMovieAltText = await waitFor(() => screen.getByText("Money Plane"))
-    let video = await waitFor(() => screen.getByTestId(330)) 
-
-    expect(firstMovieAltText).toBeInTheDocument()
+    const firstMovieText = await waitFor(() => screen.getByText("hey hey hey hey"))
+    const video = await waitFor(() => screen.getByTestId('330')) 
+    screen.debug();
     expect(video).toBeInTheDocument()
+    expect(firstMovieText).toBeInTheDocument()
   })
 
   it('should show return to home button when viewing single movie specs', async () => {
