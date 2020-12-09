@@ -21,7 +21,6 @@ class MovieView extends Component {
           .then(data => {
             this.setState({
               currentMovie: {...data[0].movie, ...data[1]},
-              error:""
             })
           })
           .catch(error => this.setState({

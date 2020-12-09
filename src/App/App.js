@@ -4,7 +4,6 @@ import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
 import { getAllMovies } from '../apiCalls.js'
 import '../App/App.scss';
-import Error from '../Error/Error.js'
 import { Route } from 'react-router-dom'
 
 class App extends Component {
@@ -39,9 +38,6 @@ class App extends Component {
           returnToHome={this.returnToHome}
           />
         </nav>
-          {this.state.error && <Error 
-            errorMessage={this.state.error.message}
-          />}
           {this.state.movies.length > 0 && 
           <Route 
             exact 

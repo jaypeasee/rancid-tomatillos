@@ -3,7 +3,8 @@
 
 .movie-page h1 {
     margin-bottom: 0;
-    margin-left: 0
+    margin-left: 0;
+    text-align: center;
 }
 
 .movie-page p {
@@ -58,6 +59,8 @@
 
 .loading-message {
     color: $gold;
+    text-align: center;
+    margin: 5%;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -101,7 +104,6 @@
         font-size: small;
     }
 }
-
 
 @media only screen and (max-width: 400px) {
     .movie-trailer {
