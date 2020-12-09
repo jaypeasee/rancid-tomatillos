@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
-import {getAllMovies, getMovieByID, getMovieTrailerByID} from '../apiCalls.js'
+import { getAllMovies } from '../apiCalls.js'
 import '../App/App.scss';
 import Error from '../Error/Error.js'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   constructor (){
     super () 
     this.state = {
       movies: [],
-      // currentMovie: {},
       error: ""
     } 
   }
@@ -24,29 +23,11 @@ class App extends Component {
       }))
       .catch(error => this.setState({
         error: error,
-        // currentMovie: {},
-      }))
+    }))
   }
-
-  // showChosenMovie = (ID) => {
-  //   const movieDetails = getMovieByID(ID)
-  //   const movieTrailer = getMovieTrailerByID(ID)
-  //   Promise.all([movieDetails, movieTrailer])
-  //     .then(data => {
-  //       this.setState({
-  //         currentMovie: {...data[0].movie, ...data[1]},
-  //         error:""
-  //       })
-  //     })
-  //     .catch(error => this.setState({
-  //       error: error,
-  //       currentMovie: {},
-  //     }))
-  // }
 
   returnToHome = () => {
     this.setState({
-      // currentMovie: {}
     })
   }
 
@@ -56,7 +37,6 @@ class App extends Component {
         <nav>
           <NavBar
           returnToHome={this.returnToHome}
-          // currentMovie={this.state.currentMovie}
           />
         </nav>
           {this.state.error && <Error 
@@ -69,7 +49,6 @@ class App extends Component {
             render={() => {
               return <Movies 
                 movies={this.state.movies}
-                // showChosenMovie={this.showChosenMovie}
                 />
             }}/>
           }
@@ -80,7 +59,6 @@ class App extends Component {
               console.log(match.params.id)
               return <MovieView
                 id={match.params.id}
-                // currentMovie={this.state.currentMovie}
               />
             }}
           />
@@ -90,4 +68,3 @@ class App extends Component {
 }
 
 export default App;
-

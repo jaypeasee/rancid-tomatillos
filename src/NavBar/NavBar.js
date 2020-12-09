@@ -3,7 +3,6 @@ import './NavBar.scss'
 import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
-  // const currentMovieKeys = Object.keys(props.currentMovie)
   return (
     <div className="nav-bar">
       <div className="nav-title">
