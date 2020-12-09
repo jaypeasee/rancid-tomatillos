@@ -41,7 +41,7 @@ class MovieView extends Component {
         }
         const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.state.currentMovie
         return (
-            <article id={id} className="movie-page">
+            <article data-testid={id} className="movie-page">
                 <h1>{title}</h1>
                 {tagline && <h2>{tagline}</h2>}
                 <img className="movie-backdrop" src={backdrop_path} alt={title + " movie poster"}/>
