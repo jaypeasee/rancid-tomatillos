@@ -56,6 +56,10 @@
     height: 425px;
 }
 
+.loading-message {
+    color: $gold;
+}
+
 @media only screen and (max-width: 1400px) {
     .movie-trailer {
         width: 600px;

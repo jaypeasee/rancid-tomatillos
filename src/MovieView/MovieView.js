@@ -26,14 +26,18 @@ class MovieView extends Component {
           })
           .catch(error => this.setState({
             error: error,
-            currentMovie: {},
           }))
     }
 
     render() {
+        if (this.state.currentMovie.error) {
+            return (
+                <h1 className="loading-message">Ooops! this movie could not be found.</h1>
+            )
+        }
         if (!this.state.currentMovie.title) {
             return (
-                <h1>Loading...</h1>
+                <h1 className="loading-message">Loading...</h1>
             )
         }
         const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.state.currentMovie

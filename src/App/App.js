@@ -56,7 +56,6 @@ class App extends Component {
             exact 
             path='/movie-review/:id'
             render={({match}) => {
-              console.log(match.params.id)
               return <MovieView
                 id={match.params.id}
               />
