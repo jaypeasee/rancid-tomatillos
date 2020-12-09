@@ -1,19 +1,42 @@
 import date from 'date-and-time';
 import React, {Component} from 'react'
 import './MovieView.scss'
+import { getMovieByID, getMovieTrailerByID } from '../apiCalls.js'
+
 
 class MovieView extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            id: this.props.id,
+            currentMovie: {},
+            error: ""
+        }
+    }
+
+    componentDidMount() {
+        const movieDetails = getMovieByID(this.state.id)
+        const movieTrailer = getMovieTrailerByID(this.state.id)
+        Promise.all([movieDetails, movieTrailer])
+          .then(data => {
+            this.setState({
+              currentMovie: {...data[0].movie, ...data[1]},
+              error:""
+            })
+          })
+          .catch(error => this.setState({
+            error: error,
+            currentMovie: {},
+          }))
     }
 
     render() {
-        if (!this.props.currentMovie.title) {
+        if (!this.state.currentMovie.title) {
             return (
                 <h1>Loading...</h1>
             )
         }
-        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.props.currentMovie
+        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.state.currentMovie
         return (
             <article id={id} className="movie-page">
                 <h1>{title}</h1>

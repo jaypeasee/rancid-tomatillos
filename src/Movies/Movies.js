@@ -12,7 +12,7 @@ const Movies = (props) => {
         title={movie.title}
         key={movie.id}  
         average_rating={movie.average_rating}
-        showChosenMovie={props.showChosenMovie}
+        // showChosenMovie={props.showChosenMovie}
       />
     )
   })

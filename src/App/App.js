@@ -12,7 +12,7 @@ class App extends Component {
     super () 
     this.state = {
       movies: [],
-      currentMovie: {},
+      // currentMovie: {},
       error: ""
     } 
   }
@@ -24,29 +24,29 @@ class App extends Component {
       }))
       .catch(error => this.setState({
         error: error,
-        currentMovie: {},
+        // currentMovie: {},
       }))
   }
 
-  showChosenMovie = (ID) => {
-    const movieDetails = getMovieByID(ID)
-    const movieTrailer = getMovieTrailerByID(ID)
-    Promise.all([movieDetails, movieTrailer])
-      .then(data => {
-        this.setState({
-          currentMovie: {...data[0].movie, ...data[1]},
-          error:""
-        })
-      })
-      .catch(error => this.setState({
-        error: error,
-        currentMovie: {},
-      }))
-  }
+  // showChosenMovie = (ID) => {
+  //   const movieDetails = getMovieByID(ID)
+  //   const movieTrailer = getMovieTrailerByID(ID)
+  //   Promise.all([movieDetails, movieTrailer])
+  //     .then(data => {
+  //       this.setState({
+  //         currentMovie: {...data[0].movie, ...data[1]},
+  //         error:""
+  //       })
+  //     })
+  //     .catch(error => this.setState({
+  //       error: error,
+  //       currentMovie: {},
+  //     }))
+  // }
 
   returnToHome = () => {
     this.setState({
-      currentMovie: {}
+      // currentMovie: {}
     })
   }
 
@@ -56,7 +56,7 @@ class App extends Component {
         <nav>
           <NavBar
           returnToHome={this.returnToHome}
-          currentMovie={this.state.currentMovie}
+          // currentMovie={this.state.currentMovie}
           />
         </nav>
           {this.state.error && <Error 
@@ -69,16 +69,18 @@ class App extends Component {
             render={() => {
               return <Movies 
                 movies={this.state.movies}
-                showChosenMovie={this.showChosenMovie}
+                // showChosenMovie={this.showChosenMovie}
                 />
             }}/>
           }
           <Route 
             exact 
             path='/movie-review/:id'
-            render={() => {
+            render={({match}) => {
+              console.log(match.params.id)
               return <MovieView
-                currentMovie={this.state.currentMovie}
+                id={match.params.id}
+                // currentMovie={this.state.currentMovie}
               />
             }}
           />
