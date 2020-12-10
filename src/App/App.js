@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
 import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
+import Error from '../Error/Error'
 import { getAllMovies } from '../apiCalls.js'
-import '../App/App.scss';
+import './App.scss';
 import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -57,7 +58,9 @@ class App extends Component {
             }}
           />
           <Route
-            render={() => <h1 className="error-message">Oops! This page was not found</h1>}
+            render={() => {
+              return <Error />
+            }}
           />
         </Switch>
       </main>

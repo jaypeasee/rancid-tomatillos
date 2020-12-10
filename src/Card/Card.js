@@ -8,8 +8,6 @@ class Card extends Component {
     super(props);
   }
 
-
-
   render() {
     const { id, image, title, average_rating } = this.props
     return (

@@ -1,5 +1,6 @@
 import date from 'date-and-time';
 import React, {Component} from 'react'
+import Error from '../Error/Error'
 import './MovieView.scss'
 import { getMovieByID, getMovieTrailerByID } from '../apiCalls.js'
 
@@ -31,7 +32,7 @@ class MovieView extends Component {
     render() {
         if (this.state.currentMovie.error) {
             return (
-                <h1 className="loading-message">Ooops! this movie could not be found.</h1>
+                <Error />
             )
         }
         if (!this.state.currentMovie.title) {
