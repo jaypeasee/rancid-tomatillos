@@ -46,7 +46,7 @@ class App extends Component {
             render={() => {
               return <Movies 
                 movies={this.state.movies}
-                />
+            />
             }}/>
           <Route 
             exact 
