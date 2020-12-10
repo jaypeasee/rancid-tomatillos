@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar'
 import MovieView from '../MovieView/MovieView'
 import { getAllMovies } from '../apiCalls.js'
 import '../App/App.scss';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   constructor (){
@@ -38,7 +38,7 @@ class App extends Component {
           returnToHome={this.returnToHome}
           />
         </nav>
-          {this.state.movies.length > 0 && 
+        <Switch> 
           <Route 
             exact 
             path="/" 
@@ -47,7 +47,6 @@ class App extends Component {
                 movies={this.state.movies}
                 />
             }}/>
-          }
           <Route 
             exact 
             path='/movie-review/:id'
@@ -57,9 +56,10 @@ class App extends Component {
               />
             }}
           />
-          <Route 
-            render={() => <h1 className="error-message">Ooops! This does not exist.</h1>}
+          <Route
+            render={() => <h1 className="error-message">Oops! This page was not found</h1>}
           />
+        </Switch>
       </main>
     )
   }

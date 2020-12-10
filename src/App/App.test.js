@@ -87,6 +87,30 @@ describe('App', () => {
 
   })
 
-  //shouldnt show specific movie details when the button is clicked.
-  //sad path test on false history.location.pathname
+  it('should no longer show the individual movie oncd the home button is clicked', async () => {
+    render(<Router history={history}><App /></Router>)
+
+    const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
+    const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
+    
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+
+    const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
+    
+    userEvent.click(firstMovieAltTxt);
+
+    let homeBtn = await waitFor(() => screen.getByRole("button")) 
+
+    const video = await waitFor(() => screen.getByTestId('330'))
+
+    expect(video).toBeInTheDocument();
+
+    userEvent.click(homeBtn);
+
+    const mulan = screen.getByAltText('Mulan movie cover')
+
+    expect(mulan).toBeInTheDocument();
+    
+  })
 });

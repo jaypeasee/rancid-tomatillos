@@ -11,7 +11,7 @@ class Card extends Component {
 
 
   render() {
-    const {id, image, title, average_rating, showChosenMovie} = this.props
+    const { id, image, title, average_rating } = this.props
     return (
     <Link 
     to={`/movie-review/${id}`}

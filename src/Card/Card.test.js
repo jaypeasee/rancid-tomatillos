@@ -1,11 +1,9 @@
 import React from 'react'
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { fireEvent, screen, render } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 import Card from './Card.js'
 import '@testing-library/jest-dom'
-
-//image and alt tag 
 
 describe('Card', () => {
   it('should display render a complete card', () => {

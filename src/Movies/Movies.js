@@ -4,6 +4,12 @@ import './Movies.scss'
 
 
 const Movies = (props) => {
+  if (props.movies.length === 0) {
+    return (
+      <h1 className="loading-message">Loading...</h1>
+    )
+  }
+
   const movieCards = props.movies.map(movie => {
     return (
       <Card
