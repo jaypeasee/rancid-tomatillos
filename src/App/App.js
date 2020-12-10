@@ -41,7 +41,7 @@ class App extends Component {
           {this.state.movies.length > 0 && 
           <Route 
             exact 
-            path ="/" 
+            path="/" 
             render={() => {
               return <Movies 
                 movies={this.state.movies}
@@ -56,6 +56,9 @@ class App extends Component {
                 id={match.params.id}
               />
             }}
+          />
+          <Route 
+            render={() => <h1 className="error-message">Ooops! This does not exist.</h1>}
           />
       </main>
     )

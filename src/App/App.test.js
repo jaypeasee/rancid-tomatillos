@@ -86,13 +86,7 @@ describe('App', () => {
     expect(history.location.pathname).toBe('/')
 
   })
-//   it('should have new url when a card is clicked', async () => {
-//     render(
-//     <MemoryRouter initialEntries={['/']}
-//       <App />
-//       <Route
-//         path="*"
-//         render=
-//     </MemoryRouter>)
-//   })
+
+  //shouldnt show specific movie details when the button is clicked.
+  //sad path test on false history.location.pathname
 });
