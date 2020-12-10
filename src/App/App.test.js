@@ -4,12 +4,14 @@ import '@testing-library/jest-dom';
 import { getAllMovies, getMovieByID, getMovieTrailerByID } from '../apiCalls'
 jest.mock('../apiCalls')
 import userEvent from '@testing-library/user-event'
-import NavBar from '../NavBar/NavBar.js'
-
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
 describe('App', () => {
   let mockMovies;
+  let history;
   beforeEach(() => {
+    history = createMemoryHistory()
     mockMovies = 
       {movies: [{id:694919, poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path :"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",title:"Money Plane" ,average_rating:6.666666666666667,release_date:"2020-09-29"}
       ,{id:337401, poster_path:"https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",backdrop_path: "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",title:"Mulan",average_rating:4.909090909090909,release_date:"2020-09-04"}]};
@@ -17,7 +19,7 @@ describe('App', () => {
    })
 
   it('should load movies', async () => {
-    render(<App />);
+    render(<Router history={history}><App /></Router>);
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     const secMovieAltTxt = await waitFor(() => screen.getByAltText("Mulan movie cover"))
 
@@ -25,8 +27,13 @@ describe('App', () => {
     expect(secMovieAltTxt).toBeInTheDocument()
   })
 
-  it('should show chosen movie specs', async () => {
-    render(<App />)
+  it('should load the home page by default', async () => {
+    render(<Router history={history}><App /></Router>);
+    expect(history.location.pathname).toBe('/')
+  })
+
+  it('should route to a specific movie page when that movie is clicked', async () => {
+    render(<Router history={history}><App /></Router>)
     const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"hey hey hey hey" ,genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
     const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
     
@@ -37,15 +44,30 @@ describe('App', () => {
     
     userEvent.click(firstMovieAltTxt);
 
-    const firstMovieText = await waitFor(() => screen.getByText("hey hey hey hey"))
+    expect(history.location.pathname).toBe('/movie-review/694919')
+  })
+
+  it('should show chosen movie specs', async () => {
+    render(<Router history={history}><App /></Router>)
+    const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"hey hey hey hey" ,genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
+    const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
+    
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+
+    const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
+    
+    userEvent.click(firstMovieAltTxt);
+
+    const movieSpecs = await waitFor(() => screen.getByTestId("694919"))
     const video = await waitFor(() => screen.getByTestId('330')) 
-    screen.debug();
+  
     expect(video).toBeInTheDocument()
-    expect(firstMovieText).toBeInTheDocument()
+    expect(movieSpecs).toBeInTheDocument()
   })
 
-  it('should show return to home button when viewing single movie specs', async () => {
-    render(<App />)
+  it('should return back to home when home button is clicked', async () => {
+    render(<Router history={history}><App /></Router>)
 
     const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
     const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
@@ -59,11 +81,14 @@ describe('App', () => {
 
     let homeBtn = await waitFor(() => screen.getByRole("button")) 
 
-    expect(homeBtn).toBeInTheDocument()
+    userEvent.click(homeBtn);
+
+    expect(history.location.pathname).toBe('/')
+
   })
 
-  it('should call a function when home button is clicked', async () => {
-    render(<App />)
+  it('should no longer show the individual movie oncd the home button is clicked', async () => {
+    render(<Router history={history}><App /></Router>)
 
     const allMovieSpecs = {movie: {id:694919,title:"Money Plane",poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",release_date:"2020-09-29",overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",genres:["Action"],budget:0,revenue:0,runtime: 82, tagline: "",average_rating: 6.666666666666667}}
     const videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
@@ -77,11 +102,15 @@ describe('App', () => {
 
     let homeBtn = await waitFor(() => screen.getByRole("button")) 
 
-    userEvent.click(homeBtn)
+    const video = await waitFor(() => screen.getByTestId('330'))
 
-    const notChosenMovie = screen.getByAltText('Mulan movie cover')
+    expect(video).toBeInTheDocument();
 
-    expect(notChosenMovie).toBeInTheDocument();
-    expect(homeBtn).not.toBeInTheDocument();
+    userEvent.click(homeBtn);
+
+    const mulan = screen.getByAltText('Mulan movie cover')
+
+    expect(mulan).toBeInTheDocument();
+    
   })
 });

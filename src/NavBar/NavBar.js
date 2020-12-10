@@ -1,5 +1,7 @@
 import React from 'react'
 import './NavBar.scss'
+import { NavLink } from 'react-router-dom';
+// import tomsFace from '../images/toms-face'
 
 const NavBar = (props) => {
   return (
@@ -9,20 +11,17 @@ const NavBar = (props) => {
         <h3>A page to view detailed movie reviews and their trailers</h3>
       </div>
       <div className="btn-container">
-        {props.toggled && 
-        <button
-          role="button"
-          className="home-btn"
-          onClick={props.returnToHome}
-        >Home</button>}
+        <NavLink 
+          to="/">
+            <button 
+            role="button"
+            className="home-btn"
+            onClick={props.returnToHome}
+            >Home</button>
+        </NavLink>
       </div>
     </div>
   )
 }
-
-
-
-
-
 
 export default NavBar

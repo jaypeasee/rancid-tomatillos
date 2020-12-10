@@ -1,67 +1,99 @@
 import React from 'react'
-import { fireEvent, screen, render } from '@testing-library/react'
+import { fireEvent, screen, render, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import MovieView from './MovieView.js'
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
+import { getMovieByID, getMovieTrailerByID } from '../apiCalls'
+jest.mock('../apiCalls')
 
 
 describe('MovieView', () => {
+  let history;
   let mockMovie;
+  let allMovieSpecs;
+  let videoSpecs;
   beforeEach(()=> {
-    mockMovie = {
-      title: "Rogue",
-      average_rating: 7,
-      genres: [{id: 2, name: 'action'}],
-      release_date: "2020-07-20",
-      runtime: 105,
-      budget: 900,
+    history = createMemoryHistory()
+    allMovieSpecs = {movie: 
+      {id:694919,
+      title:"Money Plane",
+      poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+      backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+      release_date:"2020-09-29",
+      overview:"hey hey hey hey" ,
+      genres:["Action"],
+      budget: 0,
       revenue: 100,
-      tagline: "Hello world",
-      overview: "say hello to the world",
-      backdrop_path: "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-      poster_path: "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-      videos: [{id: 331, movie_id: 718444, key: "IpSK2CsKULg", site: "YouTube", type: "Trailer"}]
-    }
+      runtime: 82,
+      tagline: "Hello",
+      average_rating: 6.666666666666667}}
+    videoSpecs = {videos:[{id:330,movie_id:694919,key:"aETz_dRDEys",site:"YouTube",type:"Trailer"}]}
+    
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
   })
   
-  it('should render basic movie review specs ', () => {
-    render(<MovieView
-      currentMovie={mockMovie}
-    />)
+  it('should render basic movie review specs ', async () => {
+    render(<Router history={history}>
+            <MovieView
+              currentMovie={mockMovie}
+            />
+          </Router>)
 
-    expect(screen.getByText("Rogue")).toBeInTheDocument()
+    const movieTitle = await waitFor(() => screen.getByText("Money Plane"))
+    const movieAltText = await waitFor(() => screen.getByAltText("Money Plane movie poster"))
+    const movieTagLine = await waitFor(() => screen.getByText("Hello"))
+    const movieOverView = await waitFor(() => screen.getByText("hey hey hey hey"))
     
-    expect(screen.getByAltText("Rogue movie poster")).toBeInTheDocument()
+
+    expect(movieTitle).toBeInTheDocument()
     
-    expect(screen.getByText("Hello world")).toBeInTheDocument()
+    expect(movieAltText).toBeInTheDocument()
     
-    expect(screen.getByText("say hello to the world")).toBeInTheDocument()
+    expect(movieTagLine).toBeInTheDocument()
+    
+    expect(movieOverView).toBeInTheDocument()
   })
 
-  it('should render detailed movie specs', () => {
-    render(<MovieView
-      currentMovie={mockMovie}
-    />)
+  it('should render detailed movie specs', async () => {
+    render(<Router history={history}>
+              <MovieView
+                currentMovie={mockMovie}
+              />
+           </Router>)
+    
+    const movieRating = await waitFor(() => screen.getByText("67%"))
+    const movieGenre = await waitFor(() => screen.getByText("Action"))
+    const movieReleaseDate = await waitFor(() => screen.getByText("Sep 29, 2020"))
+    const movieBudget = await waitFor(() => screen.getByText("$0"))
+    const movieRevenue = await waitFor(() => screen.getByText("$100"))
+    const movieDuration= await waitFor(() => screen.getByText("82 minutes"))
 
-    expect(screen.getByText(7)).toBeInTheDocument()
+    expect(movieRating).toBeInTheDocument()
 
-    expect(screen.getByText({id: 2, name: "action"})).toBeInTheDocument()
+    expect(movieGenre).toBeInTheDocument()
 
-    expect(screen.getByText("2020-07-20")).toBeInTheDocument()
+    expect(movieReleaseDate).toBeInTheDocument()
 
-    expect(screen.getByText("$900")).toBeInTheDocument()
+    expect(movieBudget).toBeInTheDocument()
 
-    expect(screen.getByText("$100")).toBeInTheDocument()
+    expect(movieRevenue).toBeInTheDocument()
 
-    expect(screen.getByText("105 minutes")).toBeInTheDocument()
+    expect(movieDuration).toBeInTheDocument()
   }) 
 
-  it('should', () => {
+  it('should render a video', async () => {
     render(<MovieView 
       currentMovie={mockMovie}
     />)
 
-    expect(screen.getByTestId(331)).toBeInTheDocument()
+    const trailerId = await waitFor(() => screen.getByTestId(330))
+
+    expect(trailerId).toBeInTheDocument()
     
   })
+
+  
 })
 export default MovieView;

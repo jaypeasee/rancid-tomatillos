@@ -1,16 +1,48 @@
 import date from 'date-and-time';
 import React, {Component} from 'react'
+import Error from '../Error/Error'
 import './MovieView.scss'
+import { getMovieByID, getMovieTrailerByID } from '../apiCalls.js'
+
 
 class MovieView extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            id: this.props.id,
+            currentMovie: {},
+            error: ""
+        }
+    }
+
+    componentDidMount() {
+        const movieDetails = getMovieByID(this.state.id)
+        const movieTrailer = getMovieTrailerByID(this.state.id)
+        Promise.all([movieDetails, movieTrailer])
+          .then(data => {
+            this.setState({
+              currentMovie: {...data[0].movie, ...data[1]},
+            })
+          })
+          .catch(error => this.setState({
+            error: error,
+          }))
     }
 
     render() {
-        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.props.currentMovie
+        if (this.state.currentMovie.error) {
+            return (
+                <Error />
+            )
+        }
+        if (!this.state.currentMovie.title) {
+            return (
+                <h1 className="loading-message">Loading...</h1>
+            )
+        }
+        const {id, backdrop_path, title, average_rating, release_date, budget, genres, overview, revenue, runtime, tagline, videos} = this.state.currentMovie
         return (
-            <article id={id} className="movie-page">
+            <article data-testid={id} className="movie-page">
                 <h1>{title}</h1>
                 {tagline && <h2>{tagline}</h2>}
                 <img className="movie-backdrop" src={backdrop_path} alt={title + " movie poster"}/>

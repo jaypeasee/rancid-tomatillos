@@ -1,9 +1,10 @@
 import React from 'react'
+import './Error.scss'
 
-const Error = (props) => {
-  return (
-    <h1>Oops, something happened: {props.errorMessage}</h1>
-  )
+const Error = () => {
+    return (
+        <h1 className="error-message">Oops! This page is not found.</h1>
+    )
 }
 
-export default Error ;
+export default Error

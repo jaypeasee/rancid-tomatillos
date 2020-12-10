@@ -4,6 +4,12 @@ import './Movies.scss'
 
 
 const Movies = (props) => {
+  if (props.movies.length === 0) {
+    return (
+      <h1 className="loading-message">Loading...</h1>
+    )
+  }
+
   const movieCards = props.movies.map(movie => {
     return (
       <Card
@@ -12,7 +18,6 @@ const Movies = (props) => {
         title={movie.title}
         key={movie.id}  
         average_rating={movie.average_rating}
-        showChosenMovie={props.showChosenMovie}
       />
     )
   })
