@@ -4,13 +4,38 @@ h3, h1 {
   margin-left: 10%;
 }
 
+// .title-animation {
+//   height: 5px;
+//   width: 200px;
+//   background-image: linear-gradient($forest, $forest ), linear-gradient(transparent, transparent);
+// }
+
 h1 {
   font-size: 2em;
   font-family: 'Bungee', cursive;
 }
 
+.home-link h1 {
+  margin: 0;
+  width: fit-content;
+  background-color: transparent;
+}
+
 .home-link {
+  width: 366px;
   text-decoration: none;
+  display: inline-block; 
+  margin: 1em;
+  background-image: linear-gradient($forest, $forest ), linear-gradient(transparent, transparent);
+  background-size: 0 5px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all .2s ease-out;
+  margin: 30px 65px 57px;
+}
+
+.home-link:hover {
+  background-size: 100% 5px, auto;
 }
 
 .nav-bar {
@@ -27,7 +52,16 @@ h1 {
 }
 
 .home-btn:hover {
-  transform: 1.1;
+  transform: scale(1.1)
+}
+
+.btn-animation {
+
+}
+
+.btn-animation:hover {
+  transform: scale(1.1);
+  border: black;
 }
 
 .nav-title {

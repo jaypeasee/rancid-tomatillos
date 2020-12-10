@@ -10,13 +10,17 @@ const NavBar = (props) => {
         <NavLink
           className="home-link"
           to="/">
-          <h1>Rancid Tomatillos</h1>
+          <h1>Rancid Tomatillos
+          <div className="title-animation"></div>
+          </h1>
+          
         </NavLink>
         
         <h3>A page to view detailed movie reviews and their trailers</h3>
       </div>
       <div className="btn-container">
         <NavLink 
+          className="btn-animation"
           to="/">
             <img
               src={tomsFace}
