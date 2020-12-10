@@ -9,33 +9,32 @@ h1 {
   font-family: 'Bungee', cursive;
 }
 
+.home-link {
+  text-decoration: none;
+}
+
 .nav-bar {
   background-color: $pickle;
   display: flex;
 }
 
 .home-btn {
-  font-size: 1.25em;
-  height: 60px;
+  height: 125px;
   width: 125px;
-  background-color: $light-green;
-  color: $forest;
-  border-radius: 3px solid transparent;
-  border: 0px;
+  background-color: transparent;
   cursor: pointer;
   align-self: flex-end;
-  border-radius: 5px;
 }
 
 .home-btn:hover {
-  background-color: $forest;
-  color: $light-green;
+  transform: 1.1;
 }
 
 .nav-title {
   display: flex;
   flex-direction: column;
   width: 70%;
+  text-decoration: none;
 }
 
 .nav-title h3, h1 {
@@ -62,8 +61,14 @@ h1 {
   }
 
   .home-btn {
-    font-size: 1em;
     width: 100px;
-    height: 50px;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .home-btn {
+    width: 75px;
+    height: 75px;
   }
 }
