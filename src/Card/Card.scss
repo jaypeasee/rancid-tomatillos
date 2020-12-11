@@ -1,6 +1,20 @@
 @import '../variables';
 @import '../mixins.scss';
 
+
+article {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+article h2 {
+  text-align: center;
+  font-size: 1.8em;
+}
+
+
+
 .movie-card {
   margin-top: 2%;
   @include flex-column-center;
@@ -11,11 +25,20 @@
   cursor: pointer;
 }
 
-.movie-card h2, .movie-card p {
+.movie-card h2 p div{
   margin-bottom: 0;
   margin-left: 0;
   text-align: center;
 }
+
+.movie-card p {
+  position: absolute;
+  margin-top: 43px;
+  margin-left: 19px;
+  font-size: 1.5em;
+  
+}
+
 
 .movie-img {
   width: 100%;
@@ -27,8 +50,22 @@
   transform: scale(1.1);
 }
 
-.movie-card:hover p, .movie-card:hover h2 {
+.movie-card:hover h2 {
   color: $gold;
+}
+
+.toms-back {
+  height: 90px;
+  width: 90px;
+  background-color: transparent;
+}
+
+.tomato-rating {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  color: black;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -48,4 +85,6 @@
     width: 60%;
   }
 }
+
+
   

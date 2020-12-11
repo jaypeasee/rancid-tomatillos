@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './Card.scss'
 import '../App/App.js'
 import {Link} from 'react-router-dom';
+import tomsBack from '../images/toms-back.png'
 
 class Card extends Component {
   constructor(props) {
@@ -23,8 +24,13 @@ class Card extends Component {
           src={image} 
           alt={title + " movie cover"}
         />
-        <h2>{title}</h2>
-        <p>Rating: {Math.round(average_rating * 10)}%</p>
+        <article>
+          <h2>{title}</h2>
+            <div className="tomato-rating">
+              <p>{Math.round(average_rating * 10)}%</p>
+              <img src={tomsBack} className="toms-back" height="70px" width="70px"/>
+            </div>
+        </article>
       </section>
     </Link>
     )
