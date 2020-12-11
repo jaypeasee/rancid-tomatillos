@@ -20,7 +20,7 @@ describe('Card', () => {
     </Router>)
     expect(screen.getByAltText("money plane movie cover")).toBeInTheDocument()
     expect(screen.getByText('money plane')).toBeInTheDocument()
-    expect(screen.getByText('Rating: 67%')).toBeInTheDocument();
+    expect(screen.getByText('67%')).toBeInTheDocument();
   })
 })
 

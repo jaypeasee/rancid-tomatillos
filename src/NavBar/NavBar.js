@@ -11,6 +11,7 @@ const NavBar = (props) => {
           className="home-link"
           to="/">
           <h1
+          className="nav-h1"
           onClick= { props.returnToHome }
           >Rancid Tomatillos
           <div className="title-animation"></div>

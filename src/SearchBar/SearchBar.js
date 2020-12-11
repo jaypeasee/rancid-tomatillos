@@ -26,7 +26,7 @@ class SearchBar extends Component {
   render () {
     return (
       <form>
-        <h2>search for movie by title</h2>
+        <h2>Search Movies by Title</h2>
         <div className="search">
           <input 
             placeholder='ex. Dead Pool'

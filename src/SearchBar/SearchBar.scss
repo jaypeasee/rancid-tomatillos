@@ -1,12 +1,17 @@
 @import '../variables';
 
 form {
-  margin-left: 60px;
+  margin: 5% 10% 0 10%;
 }
 
 .search {
   display: flex;
   flex-direction: row;
+  
+}
+
+.nav-bar h3 {
+  margin-top: 0;
 }
 
 h2 {
@@ -17,11 +22,10 @@ input {
   height: 32px;
   width: 246px;
   border: $forest;
+  padding: 0 2%;
 }
 
-
-
 .searchImg {
-  height: 34px;
-  background-color: $search
+  height: 32px;
+  background-color: $gold;
 }
