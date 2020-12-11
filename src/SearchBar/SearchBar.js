@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './SearchBar'
+import './SearchBar.scss'
+import searchBtn from '../images/search-icon.svg'
 
 
 
@@ -26,16 +27,20 @@ class SearchBar extends Component {
     return (
       <form>
         <h2>search for movie by title</h2>
-        <input 
-          placeholder='ex. Dead Pool'
-          name='searchTerm'
-          type='text'
-          onChange={ this.updateInput }
-          value= { this.state.searchTerm }>
-        </input>
-        <button
-        onClick= { this.enterSearchTerm }
-        >search</button>
+        <div className="search">
+          <input 
+            placeholder='ex. Dead Pool'
+            name='searchTerm'
+            type='text'
+            onChange={ this.updateInput }
+            value= { this.state.searchTerm }>
+          </input>
+          <img
+          className="searchImg"
+          src={ searchBtn }
+          onClick= { this.enterSearchTerm }
+          />
+        </div>
       </form>
     )
   }

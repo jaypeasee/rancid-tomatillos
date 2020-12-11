@@ -1,0 +1,27 @@
+@import '../variables';
+
+form {
+  margin-left: 60px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+}
+
+h2 {
+  color: $gold
+}
+
+input {
+  height: 32px;
+  width: 246px;
+  border: $forest;
+}
+
+
+
+.searchImg {
+  height: 34px;
+  background-color: $search
+}

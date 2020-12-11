@@ -14,7 +14,8 @@ class App extends Component {
     this.state = {
       filteredMovies: [],
       movies: [],
-      error: ""
+      error: "",
+      moviesSearched: false
     } 
   }
 
@@ -38,7 +39,8 @@ class App extends Component {
       return movie.title.includes(input)
     })
     this.setState({
-      filteredMovies
+      filteredMovies,
+      moviesSearched: true
     })
   }
 
@@ -61,8 +63,9 @@ class App extends Component {
                 searchMovies = { this.searchMovies }
                 />
                 <Movies 
-                  movies={this.state.movies}
-                  filteredMovies= { this.state.filteredMovies }
+                  movies={ this.state.movies }
+                  filteredMovies={ this.state.filteredMovies }
+                  moviesSearched= { this.state.moviesSearched }
                 />
               </div>
               )
