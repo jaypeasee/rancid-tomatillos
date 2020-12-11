@@ -31,6 +31,7 @@ class App extends Component {
 
   returnToHome = () => {
     this.setState({
+      moviesSearched: false
     })
   }
 
@@ -49,7 +50,7 @@ class App extends Component {
       <main>
         <nav>
           <NavBar
-          returnToHome={this.returnToHome}
+          returnToHome={ this.returnToHome }
           />
         </nav>
         <Switch> 

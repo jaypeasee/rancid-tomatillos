@@ -10,14 +10,12 @@ const NavBar = (props) => {
         <NavLink
           className="home-link"
           to="/">
-          <h1>Rancid Tomatillos
+          <h1
+          onClick= { props.returnToHome }
+          >Rancid Tomatillos
           <div className="title-animation"></div>
           </h1>
-          
         </NavLink>
-        
-        <h3>A page to view detailed movie reviews and their trailers</h3>
-      </div>
       <div className="btn-container">
         <NavLink 
           className="btn-animation"
@@ -31,6 +29,8 @@ const NavBar = (props) => {
             />
         </NavLink>
       </div>
+    </div>
+      <h3>A page to view detailed movie reviews and their trailers</h3>
     </div>
   )
 }

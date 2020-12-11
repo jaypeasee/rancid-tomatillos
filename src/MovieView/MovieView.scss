@@ -3,8 +3,9 @@
 
 .movie-page h1 {
     margin-bottom: 0;
-    margin-left: 0;
+    // margin-left: 0;
     text-align: center;
+    font-size: 3.5em;
 }
 
 .movie-page p {
@@ -46,9 +47,6 @@
     flex-wrap: wrap;
 }
 
-.movie-page h1 {
-    font-size: 3.5em;
-}
 
 .movie-trailer {
     border-style: none;

@@ -11,7 +11,7 @@ const Movies = (props) => {
       <h1 className="loading-message">Loading...</h1>
     )
   }
-  if (props.filteredMovies.length > 0) {
+  if (props.filteredMovies.length > 0 && props.moviesSearched) {
      moviesToDisplay = props.filteredMovies
   } else if (props.filteredMovies.length === 0 &&  props.moviesSearched) {
     return (
