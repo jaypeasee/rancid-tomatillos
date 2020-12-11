@@ -6,11 +6,13 @@ import Error from '../Error/Error'
 import { getAllMovies } from '../apiCalls.js'
 import './App.scss';
 import { Route, Switch } from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
 
 class App extends Component {
   constructor (){
     super () 
     this.state = {
+      filteredMovies: [],
       movies: [],
       error: ""
     } 
@@ -31,6 +33,15 @@ class App extends Component {
     })
   }
 
+  searchMovies = (input) => {
+    const filteredMovies = this.state.movies.filter(movie => {
+      return movie.title.includes(input)
+    })
+    this.setState({
+      filteredMovies
+    })
+  }
+
   render() {
     return (
       <main>
@@ -44,9 +55,17 @@ class App extends Component {
             exact 
             path="/" 
             render={() => {
-              return <Movies 
-                movies={this.state.movies}
-            />
+              return (
+              <div>
+                <SearchBar 
+                searchMovies = { this.searchMovies }
+                />
+                <Movies 
+                  movies={this.state.movies}
+                  filteredMovies= { this.state.filteredMovies }
+                />
+              </div>
+              )
             }}/>
           <Route 
             exact 
