@@ -13,22 +13,21 @@ article h2 {
   font-size: 1.8em;
 }
 
-
-
 .movie-card {
   margin-top: 2%;
   @include flex-column-center;
   margin: 10% 4% 0 4%;
-  color: $light-green;
   width: 15%;
   text-decoration: none;
   cursor: pointer;
 }
 
+.movie-card h2 {
+  color: $search;
+}
+
 .movie-card h2 p div{
   margin-bottom: 0;
-  // margin-left: 0;
-  text-align: center;
 }
 
 .movie-card p {
@@ -36,7 +35,7 @@ article h2 {
   margin-top: 43px;
   margin-left: 19px;
   font-size: 1.5em;
-  
+  text-align: center;
 }
 
 

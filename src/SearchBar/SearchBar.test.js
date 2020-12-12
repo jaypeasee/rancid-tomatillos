@@ -26,8 +26,8 @@ describe('SearchBar', () => {
         )
         const input = screen.getByPlaceholderText('ex. Dead Pool')
         const submitBtn = screen.getByAltText('search image')
-        input.value = 'hello'
+        userEvent.type(input, 'Hello, World!')
         userEvent.click(submitBtn)
-        expect(searchMovies).toHaveBeenCalledWith("hello")
+        expect(searchMovies).toHaveBeenCalledWith("Hello, World!")
     })
 })

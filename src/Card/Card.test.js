@@ -7,7 +7,8 @@ import '@testing-library/jest-dom'
 
 describe('Card', () => {
   it('should display render a complete card', () => {
-    let history = createMemoryHistory()
+    const history = createMemoryHistory()
+
     render(
     <Router history={history}>
       <Card
@@ -18,6 +19,7 @@ describe('Card', () => {
       average_rating={6.7}
       />
     </Router>)
+
     expect(screen.getByAltText("money plane movie cover")).toBeInTheDocument()
     expect(screen.getByText('money plane')).toBeInTheDocument()
     expect(screen.getByText('67%')).toBeInTheDocument();
