@@ -1,7 +1,6 @@
 @import '../variables';
 @import '../mixins.scss';
 
-
 article {
   display: flex;
   flex-flow: column;
@@ -37,7 +36,6 @@ article h2 {
   font-size: 1.5em;
   text-align: center;
 }
-
 
 .movie-img {
   width: 100%;
@@ -84,6 +82,3 @@ article h2 {
     width: 60%;
   }
 }
-
-
-  

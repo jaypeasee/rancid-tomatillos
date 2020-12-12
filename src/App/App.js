@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Movies from '../Movies/Movies'
+import './App.scss'
 import NavBar from '../NavBar/NavBar'
+import SearchBar from '../SearchBar/SearchBar'
+import Movies from '../Movies/Movies'
 import MovieView from '../MovieView/MovieView'
 import Error from '../Error/Error'
+import React, { Component } from 'react'
 import { getAllMovies } from '../apiCalls.js'
-import './App.scss';
 import { Route, Switch } from 'react-router-dom'
-import SearchBar from '../SearchBar/SearchBar'
 
 class App extends Component {
-  constructor (){
+  constructor () {
     super () 
     this.state = {
       filteredMovies: [],
@@ -74,9 +74,9 @@ class App extends Component {
           <Route 
             exact 
             path='/movie-review/:id'
-            render={({match}) => {
+            render={({ match }) => {
               return <MovieView
-                id={match.params.id}
+                id={ match.params.id }
               />
             }}
           />
@@ -91,4 +91,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

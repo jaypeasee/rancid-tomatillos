@@ -10,7 +10,7 @@ describe('NavBar', () => {
     const history = createMemoryHistory()
 
     render(
-      <Router history={history}><NavBar /></Router>
+      <Router history={ history }><NavBar /></Router>
     )
     
     expect(screen.getByText('Rancid Tomatillos')).toBeInTheDocument()

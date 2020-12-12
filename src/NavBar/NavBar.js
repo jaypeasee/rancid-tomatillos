@@ -1,7 +1,7 @@
-import React from 'react'
 import './NavBar.scss'
-import { NavLink } from 'react-router-dom';
 import tomsFace from '../images/tom-front.png'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = (props) => {
   return (
@@ -14,7 +14,7 @@ const NavBar = (props) => {
           className="nav-h1"
           onClick= { props.returnToHome }
           >Rancid Tomatillos
-          <div className="title-animation"></div>
+            <div className="title-animation"></div>
           </h1>
         </NavLink>
       <div className="btn-container">
@@ -22,11 +22,11 @@ const NavBar = (props) => {
           className="btn-animation"
           to="/">
             <img
-              src={tomsFace}
+              src={ tomsFace }
               alt='rancid tomatillo logo'
               role="button"
               className="home-btn"
-              onClick={props.returnToHome}
+              onClick={ props.returnToHome }
             />
         </NavLink>
       </div>

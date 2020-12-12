@@ -1,8 +1,6 @@
 import Card from './Card.js'
-
 import '@testing-library/jest-dom'
 import { screen, render } from '@testing-library/react'
-
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 

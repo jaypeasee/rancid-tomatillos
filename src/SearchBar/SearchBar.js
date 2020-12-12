@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
 import './SearchBar.scss'
 import searchBtn from '../images/search-icon.svg'
-
-
+import React, { Component } from 'react'
 
 class SearchBar extends Component {
   constructor(props) {
@@ -39,11 +37,11 @@ class SearchBar extends Component {
             value= { this.state.searchTerm }>
           </input>
           <img
-          className="searchImg"
-          alt="search image"
-          src={ searchBtn }
-          role="button"
-          onClick= { this.enterSearchTerm }
+            className="searchImg"
+            alt="search image"
+            src={ searchBtn }
+            role="button"
+            onClick= { this.enterSearchTerm }
           />
         </div>
       </form>
@@ -51,6 +49,6 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default SearchBar
 
     

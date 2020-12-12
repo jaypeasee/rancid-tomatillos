@@ -13,4 +13,4 @@ const getMovieTrailerByID = (movieID) => {
         .then(response => response.json())
 }
 
-export {getAllMovies, getMovieByID, getMovieTrailerByID}
+export { getAllMovies, getMovieByID, getMovieTrailerByID }

@@ -7,6 +7,11 @@
     font-size: 3.5em;
 }
 
+.movie-page h2 {
+    margin: 2%;
+    text-align: center;
+}
+
 .movie-page p {
     width: 60%;
     font-weight: 700;
@@ -15,11 +20,6 @@
 .movie-page li {
     width: 40%;
     margin: 0 5%;
-}
-
-.movie-page h2 {
-    margin: 2%;
-    text-align: center;
 }
 
 .movie-page {
@@ -45,7 +45,6 @@
     font-size: 1.5em;
     flex-wrap: wrap;
 }
-
 
 .movie-trailer {
     border-style: none;
@@ -93,6 +92,7 @@
         width: 300px;
         height: 175px;
     }
+
     .movie-page h1 {
         font-size: 2em;
     }

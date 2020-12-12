@@ -87,7 +87,7 @@ describe('App', () => {
 
   it('should route to a specific movie page when that movie is clicked', async () => {
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
-    userEvent.click(firstMovieAltTxt);
+    userEvent.click(firstMovieAltTxt)
 
     expect(history.location.pathname).toBe('/movie-review/694919')
   })
@@ -105,7 +105,7 @@ describe('App', () => {
 
   it('should return back to home when home button is clicked', async () => {  
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
-    userEvent.click(firstMovieAltTxt);
+    userEvent.click(firstMovieAltTxt)
 
     const homeBtn = await waitFor(() => screen.getByRole("button")) 
     userEvent.click(homeBtn)

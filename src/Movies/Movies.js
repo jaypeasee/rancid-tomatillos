@@ -1,8 +1,7 @@
-import React from 'react'
-import Card from '../Card/Card.js'
 import './Movies.scss'
+import Card from '../Card/Card.js'
 import Error from '../Error/Error'
-
+import React from 'react'
 
 const Movies = (props) => {
   let moviesToDisplay = []
@@ -24,30 +23,19 @@ const Movies = (props) => {
   const movieCards = moviesToDisplay.map(movie => {
     return (
       <Card
-        id={movie.id}
-        image={movie.poster_path}
-        title={movie.title}
-        key={movie.id}  
-        average_rating={movie.average_rating}
+        id={ movie.id }
+        image={ movie.poster_path }
+        title={ movie.title }
+        key={ movie.id }  
+        average_rating={ movie.average_rating }
       />
     )
   })
   return (
     <section className="movies-container">
-      {movieCards}
+      { movieCards }
     </section>
   )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-export default Movies;
+export default Movies
