@@ -37,7 +37,9 @@ class SearchBar extends Component {
           </input>
           <img
           className="searchImg"
+          alt="search image"
           src={ searchBtn }
+          role="button"
           onClick= { this.enterSearchTerm }
           />
         </div>

@@ -23,9 +23,20 @@ input {
   width: 246px;
   border: $forest;
   padding: 0 2%;
+  outline: none;
 }
 
 .searchImg {
   height: 32px;
   background-color: $gold;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    text-align: center;
+  }
+  
+  .search {
+    justify-content: center;
+  }
 }

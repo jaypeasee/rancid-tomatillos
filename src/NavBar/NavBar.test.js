@@ -1,11 +1,11 @@
-import { screen, render, fireEvent } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import NavBar from './NavBar.js'
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 
 
-describe.only('NavBar', () => {
+describe('NavBar', () => {
   let history = createMemoryHistory()
   it('should have a title and subtitle', () => {
     render(<Router history={history}><NavBar /></Router>)
