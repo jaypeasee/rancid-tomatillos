@@ -1,17 +1,14 @@
-import { screen, render } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import Movies from './Movies.js'
-import { createMemoryHistory } from 'history'
+import '@testing-library/jest-dom'
+import { screen, render } from '@testing-library/react'
 import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 
 describe('Movies', () => {
-  let history;
-  let mockAllMovies;
+  it('should contain all movies by default', () => {
+    const history = createMemoryHistory()
 
-  beforeEach(()=> {
-    history = createMemoryHistory()
-
-    mockAllMovies = [
+    const mockAllMovies = [
       {
         id:694919, 
         poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
@@ -29,17 +26,18 @@ describe('Movies', () => {
         release_date:"2020-09-04"
       }
     ]
-  })
-  it('should contain all movies by default', () => {
-    render(
-    <Router 
-      history={history}>
-      <Movies
-        movies={mockAllMovies}
-        filteredMovies={[]}
-        showChosenMovie={jest.fn()}
-      />
-    </Router>)
+
+    render (
+      <Router 
+        history={history}>
+        <Movies
+          movies={mockAllMovies}
+          filteredMovies={[]}
+          showChosenMovie={jest.fn()}
+        />
+      </Router>
+    )
+
     expect(screen.getByAltText('Mulan movie cover')).toBeInTheDocument()
     expect(screen.getByAltText("Money Plane movie cover")).toBeInTheDocument()
   })

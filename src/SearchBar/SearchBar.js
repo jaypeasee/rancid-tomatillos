@@ -21,6 +21,9 @@ class SearchBar extends Component {
   enterSearchTerm = (e) => {
     e.preventDefault()
     this.props.searchMovies(this.state.searchTerm)
+    this.setState({
+      searchTerm: ''
+    })
   }
 
   render () {

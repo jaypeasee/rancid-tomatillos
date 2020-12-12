@@ -1,11 +1,11 @@
-import App from './App';
-import { render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import App from './App'
+import { render, screen, waitFor } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
 import { getAllMovies, getMovieByID, getMovieTrailerByID } from '../apiCalls'
 jest.mock('../apiCalls')
-import userEvent from '@testing-library/user-event'
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 
 describe('App', () => {
   let mockMovies;
@@ -32,16 +32,17 @@ describe('App', () => {
           average_rating:4.909090909090909,
           release_date:"2020-09-04"}
         ]
-      };
+      }
     
     getAllMovies.mockResolvedValueOnce(mockMovies)
 
-    render(<Router history={history}><App /></Router>);
+    render(<Router history={history}><App /></Router>)
    })
 
   it('should load movies', async () => {
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     const secMovieAltTxt = await waitFor(() => screen.getByAltText("Mulan movie cover"))
+
     expect(firstMovieAltTxt).toBeInTheDocument()
     expect(secMovieAltTxt).toBeInTheDocument()
   })
@@ -80,8 +81,8 @@ describe('App', () => {
       ]
     }
     
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
 
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt);
@@ -119,14 +120,15 @@ describe('App', () => {
       ]
     }
     
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
 
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
-    userEvent.click(firstMovieAltTxt);
+    userEvent.click(firstMovieAltTxt)
 
     const movieSpecs = await waitFor(() => screen.getByTestId("694919"))
-    const video = await waitFor(() => screen.getByTestId('330')) 
+    const video = await waitFor(() => screen.getByTestId('330'))
+
     expect(video).toBeInTheDocument()
     expect(movieSpecs).toBeInTheDocument()
   })
@@ -161,19 +163,19 @@ describe('App', () => {
       ]
     }
     
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
 
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt);
 
     const homeBtn = await waitFor(() => screen.getByRole("button")) 
-    userEvent.click(homeBtn);
+    userEvent.click(homeBtn)
 
     expect(history.location.pathname).toBe('/')
   })
 
-  it('should no longer show the individual movie oncd the home button is clicked', async () => {
+  it('should no longer show the individual movie once the home button is clicked', async () => {
     const allMovieSpecs = {
       movie: {
         id:694919,
@@ -203,22 +205,23 @@ describe('App', () => {
       ]
     }
 
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs);
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs);
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
 
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
-    userEvent.click(firstMovieAltTxt);
+    userEvent.click(firstMovieAltTxt)
 
-    const homeBtn = await waitFor(() => screen.getByRole("button")) 
     const video = await waitFor(() => screen.getByTestId('330'))
-    expect(video).toBeInTheDocument();
+    expect(video).toBeInTheDocument()
+    
+    const homeBtn = await waitFor(() => screen.getByRole("button")) 
     userEvent.click(homeBtn);
 
     const mulan = screen.getByAltText('Mulan movie cover')
-    expect(mulan).toBeInTheDocument();
+    expect(mulan).toBeInTheDocument()
   })
 
-  it('should be able to filter movies by title search', () => {
+  it('should be able to filter movies by title search (non case sensitive)', () => {
     const searchInput = screen.getByPlaceholderText('ex. Dead Pool')
     const submitBtn = screen.getByAltText('search image')
 
@@ -227,10 +230,10 @@ describe('App', () => {
     expect(moneyPlane).toBeInTheDocument()
     expect(mulan).toBeInTheDocument()
     
-    userEvent.type(searchInput, "Money")
+    userEvent.type(searchInput, "moNey")
     userEvent.click(submitBtn)
 
     expect(moneyPlane).toBeInTheDocument()
-    expect(mulan).not.toBeInTheDocument();
+    expect(mulan).not.toBeInTheDocument()
   })
-});
+})
