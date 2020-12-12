@@ -34,14 +34,12 @@ describe('SearchBar', () => {
     it('should call filter function on click with a search term', () => {
         userEvent.type(input, 'Hello, World!')
         userEvent.click(submitBtn)
-
         expect(searchMovies).toHaveBeenCalledWith("Hello, World!")
     })
 
     it('should clear the input after a search term is submitted', () => {
         userEvent.type(input, 'Hello, World!')
         userEvent.click(submitBtn)
-
-        expect(input.value).toBe('');
+        expect(input.value).toBe('')
     })
 })

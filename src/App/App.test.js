@@ -8,8 +8,10 @@ import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 
 describe('App', () => {
-  let mockMovies;
-  let history;
+  let mockMovies
+  let history
+  let allMovieSpecs
+  let videoSpecs
 
   beforeEach(() => {
     history = createMemoryHistory()
@@ -33,10 +35,42 @@ describe('App', () => {
           release_date:"2020-09-04"}
         ]
       }
+
+      allMovieSpecs = {
+        movie: {
+          id:694919,
+          title:"Money Plane",
+          poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+          backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+          release_date:"2020-09-29",
+          overview:"hey hey hey hey",
+          genres:["Action"],
+          budget:0,
+          revenue:0,
+          runtime: 82, 
+          tagline: "",
+          average_rating: 6.666666666666667
+        }
+      }
+
+      videoSpecs = {
+        videos:[
+          {
+            id:330,
+            movie_id:694919,
+            key:"aETz_dRDEys",
+            site:"YouTube",
+            type:"Trailer"
+          }
+        ]
+      }
     
     getAllMovies.mockResolvedValueOnce(mockMovies)
 
     render(<Router history={history}><App /></Router>)
+
+    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
+    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
    })
 
   it('should load movies', async () => {
@@ -52,38 +86,6 @@ describe('App', () => {
   })
 
   it('should route to a specific movie page when that movie is clicked', async () => {
-    const allMovieSpecs = {
-      movie: {
-        id:694919,
-        title:"Money Plane",
-        poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        release_date:"2020-09-29",
-        overview:"hey hey hey hey",
-        genres:["Action"],
-        budget:0,
-        revenue:0,
-        runtime: 82, 
-        tagline: "",
-        average_rating: 6.666666666666667
-      }
-    }
-
-    const videoSpecs = {
-      videos:[
-        {
-          id:330,
-          movie_id:694919,
-          key:"aETz_dRDEys",
-          site:"YouTube",
-          type:"Trailer"
-        }
-      ]
-    }
-    
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
-
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt);
 
@@ -91,38 +93,6 @@ describe('App', () => {
   })
 
   it('should show chosen movie specs', async () => {
-    const allMovieSpecs = {
-      movie: {
-        id:694919,
-        title:"Money Plane",
-        poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        release_date:"2020-09-29",
-        overview:"hey hey hey hey",
-        genres:["Action"],
-        budget:0,
-        revenue:0,
-        runtime: 82, 
-        tagline: "",
-        average_rating: 6.666666666666667
-      }
-    }
-
-    const videoSpecs = {
-      videos:[
-        {
-          id:330,
-          movie_id:694919,
-          key:"aETz_dRDEys",
-          site:"YouTube",
-          type:"Trailer"
-        }
-      ]
-    }
-    
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
-
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt)
 
@@ -133,39 +103,7 @@ describe('App', () => {
     expect(movieSpecs).toBeInTheDocument()
   })
 
-  it('should return back to home when home button is clicked', async () => {
-    const allMovieSpecs = {
-      movie: {
-        id:694919,
-        title:"Money Plane",
-        poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        release_date:"2020-09-29",
-        overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-        genres:["Action"],
-        budget:0,
-        revenue:0,
-        runtime: 82, 
-        tagline: "",
-        average_rating: 6.666666666666667
-      }
-    }
-    
-    const videoSpecs = {
-      videos:[
-        {
-          id:330,
-          movie_id:694919,
-          key:"aETz_dRDEys",
-          site:"YouTube",
-          type:"Trailer"
-        }
-      ]
-    }
-    
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
-
+  it('should return back to home when home button is clicked', async () => {  
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt);
 
@@ -176,38 +114,6 @@ describe('App', () => {
   })
 
   it('should no longer show the individual movie once the home button is clicked', async () => {
-    const allMovieSpecs = {
-      movie: {
-        id:694919,
-        title:"Money Plane",
-        poster_path:"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        backdrop_path:"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        release_date:"2020-09-29",
-        overview:"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-        genres:["Action"],
-        budget:0,
-        revenue:0,
-        runtime: 82, 
-        tagline: "",
-        average_rating: 6.666666666666667
-      }
-    }
-
-    const videoSpecs = {
-      videos:[
-        {
-          id:330,
-          movie_id:694919,
-          key:"aETz_dRDEys",
-          site:"YouTube",
-          type:"Trailer"
-        }
-      ]
-    }
-
-    getMovieByID.mockResolvedValueOnce(allMovieSpecs)
-    getMovieTrailerByID.mockResolvedValueOnce(videoSpecs)
-
     const firstMovieAltTxt = await waitFor(() => screen.getByAltText("Money Plane movie cover"))
     userEvent.click(firstMovieAltTxt)
 
