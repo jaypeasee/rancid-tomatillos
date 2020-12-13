@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
-import Movies from '../Movies/Movies'
+import './App.scss'
 import NavBar from '../NavBar/NavBar'
+import SearchBar from '../SearchBar/SearchBar'
+import Movies from '../Movies/Movies'
 import MovieView from '../MovieView/MovieView'
 import Error from '../Error/Error'
+import React, { Component } from 'react'
 import { getAllMovies } from '../apiCalls.js'
-import './App.scss';
 import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
-  constructor (){
+  constructor () {
     super () 
     this.state = {
+      filteredMovies: [],
       movies: [],
-      error: ""
+      error: "",
+      moviesSearched: false
     } 
   }
 
@@ -28,6 +31,17 @@ class App extends Component {
 
   returnToHome = () => {
     this.setState({
+      moviesSearched: false
+    })
+  }
+
+  searchMovies = (input) => {
+    const filteredMovies = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(input.toLowerCase())
+    })
+    this.setState({
+      filteredMovies,
+      moviesSearched: true
     })
   }
 
@@ -36,7 +50,7 @@ class App extends Component {
       <main>
         <nav>
           <NavBar
-          returnToHome={this.returnToHome}
+          returnToHome={ this.returnToHome }
           />
         </nav>
         <Switch> 
@@ -44,16 +58,25 @@ class App extends Component {
             exact 
             path="/" 
             render={() => {
-              return <Movies 
-                movies={this.state.movies}
-            />
+              return (
+              <div>
+                <SearchBar 
+                searchMovies = { this.searchMovies }
+                />
+                <Movies 
+                  movies={ this.state.movies }
+                  filteredMovies={ this.state.filteredMovies }
+                  moviesSearched= { this.state.moviesSearched }
+                />
+              </div>
+              )
             }}/>
           <Route 
             exact 
             path='/movie-review/:id'
-            render={({match}) => {
+            render={({ match }) => {
               return <MovieView
-                id={match.params.id}
+                id={ match.params.id }
               />
             }}
           />
@@ -68,4 +91,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

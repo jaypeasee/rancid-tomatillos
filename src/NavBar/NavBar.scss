@@ -1,7 +1,10 @@
 @import '../variables';
 
-h3, h1 {
+.nav-bar h3 {
+  color: $forest;
+  color: #184d47;
   margin-left: 10%;
+  margin-right: 10%;
 }
 
 h1 {
@@ -16,16 +19,16 @@ h1 {
 }
 
 .home-link {
+  margin: 0;
   width: 366px;
   text-decoration: none;
-  display: inline-block; 
-  margin: 1em;
-  background-image: linear-gradient($forest, $forest ), linear-gradient(transparent, transparent);
+  display: inline-block;
+  background-image: linear-gradient(#184d47, #184d47), linear-gradient(transparent, transparent);
   background-size: 0 5px, auto;
   background-repeat: no-repeat;
   background-position: center bottom;
   transition: all .2s ease-out;
-  margin: 30px 65px 57px;
+  text-align: -webkit-center;
 }
 
 .home-link:hover {
@@ -35,6 +38,7 @@ h1 {
 .nav-bar {
   background-color: $pickle;
   display: flex;
+  flex-direction: column;
 }
 
 .home-btn {
@@ -52,9 +56,11 @@ h1 {
 
 .nav-title {
   display: flex;
-  flex-direction: column;
-  width: 70%;
+  place-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   text-decoration: none;
+  margin: 0 10%;
 }
 
 .nav-title h3, h1 {
@@ -66,8 +72,8 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
   margin: 3%;
+  align-items: flex-end;
 }
 
 @media only screen and (max-width: 900px) {
@@ -76,8 +82,16 @@ h1 {
     font-size: 1em;
   }
 
-  h1 {
-    font-size: 1.5em;
+   .nav-title h1 {
+     font-size: 1.5em;
+   }
+
+   .home-link {
+     text-align: start;
+   }
+
+  .nav-h1 {
+    margin: 0;
   }
 
   .home-btn {
@@ -86,9 +100,32 @@ h1 {
   }
 }
 
+
 @media only screen and (max-width: 600px) {
   .home-btn {
     width: 75px;
     height: 75px;
+  }
+
+  .nav-title {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar h3 {
+    text-align: -webkit-center;
+    color: $forest;
+  }
+
+  .btn-container{
+    align-items: center;
+  }
+
+  .home-link {
+    text-align: -webkit-center;
+  }
+
+  .home-link {
+    margin-top: 5%;
   }
 }
