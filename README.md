@@ -1,14 +1,14 @@
-# Overlook Hotel Solo Project
-## Project Description:
-Rancid Tomatillos is a movie ratings review site where the User is given the option to scroll through a gallery of movies and review that movies unique specs.
+# Rancid Tomatillos Paired Project
 
-[This is a Movie rating review application](https://jaypeasee.github.io/rancid-tomatillos/)
+## Project Description:
+[Rancid Tomatillos](https://jaypeasee.github.io/rancid-tomatillos/) is a spin off of Rotten Tomatoes - a movie ratings review site where the User is given the option to scroll through a gallery of movies and see that movies review.
+
 
 
 ## Setup Instructions:
   1. `Fork` [this repository](https://github.com/jaypeasee/rancid-tomatillos).
-  2. `Clone` it down to your local machine in the Terminal with the command `git clone <your ssh key>`. 
-  3. Run `npm install` to get Webpack to compile the various implementation files.
+  2. `Clone` it down to your local machine. 
+  3. Run `npm install` to compile the React application.
   4. To see the page locally:
      1. Run `npm start`
   5. To review all of the tests run `npm test`.
@@ -19,15 +19,23 @@ Rancid Tomatillos is a movie ratings review site where the User is given the opt
     - Each movie should have a: Title, Poster image, description, rating, genre, budget, revenue, film duration.
   3. User should be able to use the tomatillo icon or the page title to return home
 
-
-
+## Learning Goals:
+  1. Understand: 
+    - the difference between functional and class components
+    - how to pass props and data down to child components
+    - how to manage and change the state of components
+    - how to test Asynchonous JavaScript methods 
+    - how to create unit and integration test in React testing library and Jest 
+    - how to properly implement and test React Router
+    - how to build and deploy react application to Github pages
+    
+  
 ## Programming Languages and Technology Used:
-* `JavaScript` using `ES6` functions and classes.
-* `HTML`
+* `JavaScript` using `React Library` 
+* `React testing Library` and `Jest` 
 * `SCSS`
-* `Webpack` to bundle all necessary implementation files.
-* `NPM` to run the page locally, test classes and objects, lint each line of code, and to utilize the `moment` time package.
-* `React`
+* `NPM` to compile the application and run tests
+
 
 
 ## Contributors:
