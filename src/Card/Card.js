@@ -3,8 +3,8 @@ import tomsBack from '../images/toms-back.png'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = () => {
-  const { id, image, title, average_rating } = this.props
+const Card = (props) => {
+  const { id, image, title, average_rating } = props
   return (
     <Link 
     to={ `/movie-review/${ id }` }

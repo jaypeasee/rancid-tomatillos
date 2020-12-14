@@ -56,7 +56,7 @@ class App extends Component {
         <Switch> 
           <Route 
             exact 
-            path="/" 
+            path="/rancid-tomatillos" 
             render={() => {
               return (
               <div>
@@ -73,7 +73,7 @@ class App extends Component {
             }}/>
           <Route 
             exact 
-            path='/movie-review/:id'
+            path='/rancid-tomatillos/movie-review/:id'
             render={({ match }) => {
               return <MovieView
                 id={ match.params.id }
