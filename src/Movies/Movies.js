@@ -16,8 +16,7 @@ const Movies = (props) => {
     return (
       <Error />
     )
-  }
-  else {
+  } else {
    moviesToDisplay = props.movies
   }
   const movieCards = moviesToDisplay.map(movie => {
