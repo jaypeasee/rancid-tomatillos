@@ -1,6 +1,8 @@
 # Overlook Hotel Solo Project
 ## Project Description:
-[This is a hotel booking application](https://jaypeasee.github.io/overlook-hotel/). 
+Rancid Tomatillos is a movie ratings review site where the User is given the option to scroll through a gallery of movies and review that movies unique specs.
+
+[This is a Movie rating review application](https://jaypeasee.github.io/rancid-tomatillos/)
 
 
 ## Setup Instructions:
@@ -9,21 +11,13 @@
   3. Run `npm install` to get Webpack to compile the various implementation files.
   4. To see the page locally:
      1. Run `npm start`
-
   5. To review all of the tests run `npm test`.
 
 ### User Experience:
-
-
-
-## Learning Goals:
-1. Work with APIs to receive and send data that dictate content on the page.
-2. Create a robust testing suite that drives the `OOP` process.
-3. Use `event delegation` to control almost the entirety of `DOM` manipulation.
-4. Use tools within `scss` to separate and `DRY` up stylesheets.
-5. Use `media queries` to make a fully responsive page.
-
-
+  1. User should be able to view a gallery view of movies 
+  2. When the user clicks on a movie they should be able to view the individual movie specs
+    - Each movie should have a: Title, Poster image, description, rating, genre, budget, revenue, film duration.
+  3. User should be able to use the tomatillo icon or the page title to return home
 
 
 
