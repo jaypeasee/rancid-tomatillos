@@ -29,7 +29,7 @@ The complete project spec and rubric can be found [here](https://frontend.turing
   * the difference between functional and class components.
   * when to pass props and data down to child components.
   * when to manage and change the state of class components.
-  * how to create unit and integration tests in React testing Library & Jest
+  * how to create unit and integration tests in React testing Library & Jest.
   * how to test Asynchronous JavaScript methods.
   * how to properly implement and test React Router.
   * how to build and deploy react application to Github pages.
