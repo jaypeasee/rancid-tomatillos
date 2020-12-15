@@ -40,6 +40,9 @@ The complete project spec and rubric can be found [here](https://frontend.turing
 * `NPM` to compile the application and run tests
 
 ## Contributors:
+### Creators/Owners:
 * [JP Carey](https://github.com/jaypeasee)
 * [Peyton Jones](https://github.com/peytonjo)
-* [Leta Keane](https://github.com/BobGu) and [Will Mitchell](https://github.com/Kalikoze): Project Managers.
+### Project Managers:
+* [Leta Keane](https://github.com/letakeane)
+* [Will Mitchell](https://github.com/wvmitchell)
