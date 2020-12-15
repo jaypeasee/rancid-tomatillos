@@ -5,9 +5,6 @@
 
 The complete project spec and rubric can be found [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html).
 
-## The Working Application
-![Giph of the working Applicartion](https://media.giphy.com/media/PWctEGTaeqhJ2Tfujh/giphy.gif)
-
 ## Setup Instructions:
   1. `Fork` [this repository](https://github.com/jaypeasee/rancid-tomatillos).
   1. `Clone` it down to your local machine with `git clone <your SSH Key>`.
@@ -22,6 +19,9 @@ The complete project spec and rubric can be found [here](https://frontend.turing
   1. Filter movies in the gallery page by title by entering a complete or partial title into the form searchbar.
   2. Clicks on a movie particular movie to view the individual movie review and its trailer. These details are fetched from different endpoints of the same API.
   3. Click the Tomatillo icon or nav title to return to the home gallery page.
+  
+## The Working Application
+![Giph of the working Applicartion](https://media.giphy.com/media/PWctEGTaeqhJ2Tfujh/giphy.gif)
 
 ## Learning Goals:
   1. Understand: 
