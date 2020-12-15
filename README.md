@@ -16,7 +16,7 @@ The complete project spec and rubric can be found [here](https://frontend.turing
 
 ### User Experience:
   1. View a gallery page of all movies fetched from an API.
-  1. Filter movies in the gallery page by title by entering a complete or partial title into the form searchbar.
+  1. Filter movies by title in the gallery page by entering a complete or partial title into the form searchbar.
   2. Clicks on a movie particular movie to view the individual movie review and its trailer. These details are fetched from different endpoints of the same API.
   3. Click the Tomatillo icon or nav title to return to the home gallery page.
   
