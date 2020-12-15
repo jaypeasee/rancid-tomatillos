@@ -3,7 +3,7 @@
 ## Project Description:
 [Rancid Tomatillos](https://jaypeasee.github.io/rancid-tomatillos/) is a derivative of Rotten Tomatoes - a movie ratings application where the user can scroll through a gallery of reviewed movies and click on one to see that movies individual review and production facts.
 
-The complete project spec and rubric can be found [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)
+The complete project spec and rubric can be found [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html).
 
 ## The Working Application
 ![Giph of the working Applicartion](https://media.giphy.com/media/PWctEGTaeqhJ2Tfujh/giphy.gif)
