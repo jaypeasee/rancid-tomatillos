@@ -1,7 +1,10 @@
 # Rancid Tomatillos Paired Project
 
 ## Project Description:
-[Rancid Tomatillos](https://jaypeasee.github.io/rancid-tomatillos/) is a spin off of Rotten Tomatoes - a movie ratings review site where the User is given the option to scroll through a gallery of movies and see that movies review.
+[Rancid Tomatillos](https://jaypeasee.github.io/rancid-tomatillos/) is a derivative of Rotten Tomatoes - a movie ratings application where the user can scroll through a gallery of reviewed movies and click on one to see that movies individual review and production facts.
+
+## The Working Application
+
 
 ## Setup Instructions:
   1. `Fork` [this repository](https://github.com/jaypeasee/rancid-tomatillos).
@@ -37,4 +40,4 @@
 ## Contributors:
 * [JP Carey](https://github.com/jaypeasee)
 * [Peyton Jones](https://github.com/peytonjo)
-* [Leta K.](https://github.com/BobGu) and [Will M.](https://github.com/Kalikoze): Project Managers.
+* [Leta Keane](https://github.com/BobGu) and [Will Mitchell](https://github.com/Kalikoze): Project Managers.
