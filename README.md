@@ -24,15 +24,13 @@ The complete project spec and rubric can be found [here](https://frontend.turing
 ![Giph of the working Applicartion](https://media.giphy.com/media/PWctEGTaeqhJ2Tfujh/giphy.gif)
 
 ## Learning Goals:
-  1. Understand:
-  
-    - the difference between functional and class components.
-    - how to pass props and data down to child components.
-    - how to manage and change the state of components.
-    - how to create unit and integration test in React testing library and Jest
-    - how to test Asynchonous JavaScript methods.
-    - how to properly implement and test React Router
-    - how to build and deploy react application to Github pages
+  * Understand the difference between functional and class components.
+  * Understand how to pass props and data down to child components.
+  * Understand how to manage and change the state of class components.
+  * Understand how to create unit and integration tests in React testing Library & Jest
+  * Understand how to test Asynchronous JavaScript methods.
+  * Understand how to properly implement and test React Router.
+  * Learn how to build and deploy react application to Github pages.
   
 ## Programming Languages and Technology Used:
 * `JavaScript` using the `React Library` 
