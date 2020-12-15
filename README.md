@@ -12,7 +12,7 @@ The complete project spec and rubric can be found [here](https://frontend.turing
   1. Run `npm install` to compile the React application.
   1. Run `npm start` to see the app running locally.
   1. Run `<your text editor> .` to see the code in your text editor.
-  1. To review all of the tests in your Terminal run `npm test`.
+  1. Run `npm test` to see all of the tests running in your Terminal.
 
 ### User Experience:
   1. View a gallery page of all movies fetched from an API.
