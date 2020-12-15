@@ -25,6 +25,7 @@ The complete project spec and rubric can be found [here](https://frontend.turing
 
 ## Learning Goals:
   1. Understand:
+  
     - the difference between functional and class components.
     - how to pass props and data down to child components.
     - how to manage and change the state of components.
